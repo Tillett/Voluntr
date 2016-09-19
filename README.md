@@ -31,6 +31,7 @@ Evaluation tools will allow both subsets of users to communicate their experienc
 Gamification features to drive user engagement with the site in between volunteering events and reward positive behavior on the site. A potential feature might include achievements and/or point rewards associated with activity such as participating in volunteer opportunities, reaching milestones like a certain number of volunteering opportunities created or participated in, and evaluating volunteering or requesting users. Another potential feature could be providing volunteering users the capability of forming user groups with other volunteering users similar to the clans or guilds that exist in multiplayer games. These clans or guilds could display the aggregate score/achievements of their users.
 
 Any Limitations:
+
 Social media features will not be added to the site. Many socially-oriented sites start with a specific goal in mind (in this case, facilitating volunteer work), but end up suffering from feature creep as a result of increasing reliance on the platform. To avoid this issue, no ‘social’ features apart from profiles, groups, reviews, or messages, will be added.
 
 Payment tools will also not be included, as this volunteering site will focus on the physical involvement of users in volunteer opportunities. There already exist many platforms (Indiegogo, kickstarter, gofundme, etc) which focus on crowdfunding. Moreover, by not including this feature, the legal issues surrounding paid volunteer work will be avoided.
