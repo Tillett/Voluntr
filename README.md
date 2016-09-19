@@ -2,10 +2,14 @@
 
 Senior Project
 
-Matthew Osborne
-Michael Tillett
-Aleksandr Fritz
-Austin Auger
+Matthew Osborne,
+
+Michael Tillett,
+
+Aleksandr Fritz,
+
+Austin Auger,
+
 Brett Seeberger
 
 Project Title: Volntr.io (working title)
