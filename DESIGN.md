@@ -66,5 +66,3 @@ faker - Assists in creating sample users
 will_paginate - Adds pagination capability to sections of site
 
 bootstrap-will_paginate - Configures will_paginate to use Bootstrap styles
-
-

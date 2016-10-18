@@ -1,0 +1,2 @@
+class VolunteerUser < BasicUser
+end
