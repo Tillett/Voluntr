@@ -1,6 +1,6 @@
 class BasicUser < ActiveRecord::Migration[5.0]
   def change
-    create_table :users do |t|
+    create_table :basic_users do |t|
       t.string :type
       t.string :email
       t.string :password_digest
