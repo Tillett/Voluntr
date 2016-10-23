@@ -1,0 +1,25 @@
+<h1>VolunteerUsers#new</h1>
+<p>
+  <%= form_for(@volunteer_user) do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    
+    <%= f.label :display_name %>
+    <%= f.text_field :display_name %>
+    
+    <%= f.label :zip_code %>
+    <%= f.text_field :zip_code %>
+    
+    <%= f.label :about_me %>
+    <%= f.text_area :about_me %>
+    
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    
+    <%= f.label :password_confirmation, "Confirm" %>
+    <%= f.password_field :password_confirmation %>
+    
+    <%= f.submit "Create account" %>
+  
+  <% end %>
+</p>

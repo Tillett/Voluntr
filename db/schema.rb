@@ -10,25 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021184749) do
+ActiveRecord::Schema.define(version: 20161023022610) do
 
-  create_table "basic_users", force: :cascade do |t|
-    t.string "type"
+  create_table "request_users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.string "display_name"
+    t.string "tel_num"
+    t.string "fax_num"
+    t.string "website_address"
     t.text   "about_me"
-    t.       "sti_store"
-  end
-
-  create_table "request_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "remember_digest"
+    t.index ["email"], name: "index_request_users_on_email", unique: true
   end
 
   create_table "volunteer_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "display_name"
+    t.string  "email"
+    t.string  "password_digest"
+    t.text    "about_me"
+    t.string  "zip_code"
+    t.string  "points"
+    t.string  "rev_count"
+    t.boolean "no_search"
+    t.string  "remember_digest"
+    t.index ["email"], name: "index_volunteer_users_on_email", unique: true
   end
 
 end
