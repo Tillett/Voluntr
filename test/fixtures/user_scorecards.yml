@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  volunteer_user_id: 1
+  skill_proficiency: 1
+  attitude: 1
+  enthusiasm: 1
+  reliability: 1
+
+two:
+  volunteer_user_id: 1
+  skill_proficiency: 1
+  attitude: 1
+  enthusiasm: 1
+  reliability: 1

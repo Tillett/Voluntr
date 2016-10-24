@@ -1,5 +1,5 @@
 class RequestUser < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token 
   
   before_save {self.email = email.downcase}
   validates :display_name, presence: true, length: {maximum: 60}
@@ -9,6 +9,8 @@ class RequestUser < ApplicationRecord
                  uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: {minimum: 12}
+  has_one :request_user_scorecard
+  has_many :notifications
   
   def RequestUser.new_token
     SecureRandom.urlsafe_base64

@@ -9,6 +9,10 @@ class VolunteerUser < ApplicationRecord
                  uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: {minimum: 12}
+  has_one :availability
+  has_one :user_scorecard
+  has_many :skills
+  has_many :notifications
   
   def VolunteerUser.new_token
     SecureRandom.urlsafe_base64
