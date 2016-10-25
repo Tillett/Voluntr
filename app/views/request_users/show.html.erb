@@ -1,3 +1,5 @@
 <%= @request_user.email %>, <%= @request_user.display_name %>,
 <%= @request_user.tel_num %>, <%= @request_user.fax_num %>,
-<%= @request_user.website_address %>, <%= request_user_logged_in? %>
+<%= @request_user.website_address %>, <%= request_user_logged_in? %>,
+
+<%= link_to "Create a request post", newreqpost_path %>

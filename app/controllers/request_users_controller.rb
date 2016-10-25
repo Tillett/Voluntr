@@ -6,7 +6,7 @@ class RequestUsersController < ApplicationController
   def create 
     @request_user = RequestUser.new(request_user_params)
     if @request_user.save
-      log_in @request_user
+      request_log_in @request_user
       flash[:success] = "Log in successful"
       redirect_to @request_user
     else

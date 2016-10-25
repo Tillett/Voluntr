@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024175852) do
+ActiveRecord::Schema.define(version: 20161024183536) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20161024175852) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_type", "user_id"], name: "index_notifications_on_user_type_and_user_id"
+  end
+
+  create_table "request_posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "location"
+    t.date     "date"
+    t.text     "description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "request_user_id"
   end
 
   create_table "request_user_scorecards", force: :cascade do |t|

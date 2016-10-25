@@ -1,10 +1,10 @@
 module RequestSessionsHelper
   
-  def log_in(request_user)
+  def request_log_in(request_user)
     session[:request_user_id] = request_user.id
   end
   
-  def remember(request_user)
+  def request_remember(request_user)
     request_user.remember
     cookies.permanent.signed[:request_user_id] = request_user.id
     cookies.permanent[:remember_token] = request_user.remember_token
@@ -16,7 +16,7 @@ module RequestSessionsHelper
     elsif (request_user_id = cookies.signed[:request_user_id])
       request_user = RequestUser.find_by(id: request_user_id)
       if request_user && request_user.authenticated?(cookies[:remember_token])
-        log_in request_user
+        request_log_in request_user
         @current_request_user = request_user
       end
     end
@@ -31,7 +31,7 @@ module RequestSessionsHelper
     @current_request_user = nil
   end
   
-  def forget(request_user)
+  def request_forget(request_user)
     request_user.forget
     cookies.delete(:request_user_id)
     cookies.delete(:remember_token)

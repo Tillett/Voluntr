@@ -5,8 +5,8 @@ class RequestSessionsController < ApplicationController
   def create
     request_user = RequestUser.find_by(email: params[:session][:email].downcase)
     if request_user && request_user.authenticate(params[:session][:password])
-      log_in request_user
-      params[:session][:remember_me] == '1' ? remember(request_user) : forget(request_user)
+      request_log_in request_user
+      params[:session][:remember_me] == '1' ? request_remember(request_user) : request_forget(request_user)
       redirect_to request_user
     else
       flash.now[:danger] = 'Incorrect Account Information'

@@ -3,12 +3,12 @@ class VolunteerUsersController < ApplicationController
     @volunteer_user = VolunteerUser.new
   end
   
-  def create 
+  def create
     @volunteer_user = VolunteerUser.new(volunteer_user_params)
     @volunteer_user.points = 0
     @volunteer_user.rev_count = 0
     if @volunteer_user.save
-      log_in @volunteer_user
+      volunteer_log_in @volunteer_user
       flash[:success] = "Log in successful"
       redirect_to @volunteer_user
     else
