@@ -7,6 +7,10 @@ class RequestPostsController < ApplicationController
     @request_post = RequestPost.new(request_post_params)
     @request_post.request_user_id = session[:request_user_id]
     if @request_post.save
+      
+      # for user in VolunteerUsers.where(x => x.follows.contains(request_user_id))
+      #  user.notifications.create(title: "Someone you follow has a new opportunity!", description: "whatever")
+      
       flash[:success] = "Request Post Created"
       redirect_to @request_post
     else
