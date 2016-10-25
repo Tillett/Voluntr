@@ -1,0 +1,5 @@
+<li id="request-post-<%= request_post.title %>">
+  <%= link_to request_post.request_user.display_name, request_post.request_user %>
+  <span><%= link_to request_post.title, @request_post %></span>
+  <span><%= request_post.date %></span>
+</li>
