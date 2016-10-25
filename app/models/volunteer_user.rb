@@ -1,18 +1,22 @@
 class VolunteerUser < ApplicationRecord
   attr_accessor :remember_token
   
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_ZIP_REGEX = /\A\d{5}-\d{4}|\A\d{5}\z/
+  
   before_save {self.email = email.downcase}
   validates :display_name, presence: true, length: {maximum: 60}
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 150},
                  format: {with: VALID_EMAIL_REGEX},
                  uniqueness: {case_sensitive: false}
+  validates :zip_code, presence: true, length: {maximum: 10},
+                format: {with: VALID_ZIP_REGEX}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 12}
+  validates :password, presence: true, length: {minimum: 6}
   has_one :availability
   has_one :user_scorecard
   has_many :skills
-  has_many :notifications
+  has_many :notifications, :as => :user
   
   def VolunteerUser.new_token
     SecureRandom.urlsafe_base64

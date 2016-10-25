@@ -1,0 +1,4 @@
+<% cuser = current_request_user || current_volunteer_user %>
+<% for i in cuser.notifications %>
+    <%= i.title %> :: <%= i.description %>
+<% end %>

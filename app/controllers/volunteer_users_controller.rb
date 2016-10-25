@@ -12,6 +12,7 @@ class VolunteerUsersController < ApplicationController
       flash[:success] = "Log in successful"
       redirect_to @volunteer_user
     else
+      flash.now[:danger] = "Please check the fields carefully"
       render 'new'
     end
   end

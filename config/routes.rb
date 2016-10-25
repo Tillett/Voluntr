@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'volunteer_sessions/new'
 
   get 'volunteer_users/new'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get '/reqsignup', to: 'request_users#new'
   resources :request_users
   resources :volunteer_users
+  resources :notifications, only: [:show, :destroy]
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'
   delete '/reqlogout', to: 'request_sessions#destroy'

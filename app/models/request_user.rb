@@ -8,9 +8,9 @@ class RequestUser < ApplicationRecord
                  format: {with: VALID_EMAIL_REGEX},
                  uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 12}
+  validates :password, presence: true, length: {minimum: 6}
   has_one :request_user_scorecard
-  has_many :notifications
+  has_many :notifications, :as => :user
   
   def RequestUser.new_token
     SecureRandom.urlsafe_base64

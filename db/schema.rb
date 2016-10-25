@@ -33,10 +33,13 @@ ActiveRecord::Schema.define(version: 20161024175852) do
   end
 
   create_table "notifications", force: :cascade do |t|
+    t.string   "user_type"
+    t.integer  "user_id"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_type", "user_id"], name: "index_notifications_on_user_type_and_user_id"
   end
 
   create_table "request_user_scorecards", force: :cascade do |t|
