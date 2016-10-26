@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
   get '/faq',   to: 'static_pages#faq'
+  get '/debugreview', to: 'static_pages#debugreview'
   get '/reqsignup', to: 'request_users#new'
   resources :request_users
   resources :volunteer_users
+  resources :user_scorecards
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
   get '/reqpostcreation', to: 'request_posts#new'

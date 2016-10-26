@@ -41,4 +41,25 @@ class VolunteerUser < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+  
+  def review(skill, attit, enthu, relia)
+    
+    ##increase review count
+    self.rev_count = self.rev_count + 1
+    
+    ##assign local variables
+    count = self.rev_count
+    
+    ##average based on review count
+    inverseCount = 1.0/count
+    
+    self.skill_proficiency =
+      inverseCount * :skill_proficiency + (count - inverseCount) * skill
+    self.attitude =
+      inverseCount * :attitude + (count - inverseCount) * attit
+    self.enthusiasm =
+      inverseCount * :enthusiasm + (count - inverseCount) * enthu
+    self.reliability =
+      inverseCount * :reliability + (count - inverseCount) * relia
+  end
 end
