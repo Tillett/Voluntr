@@ -5,7 +5,11 @@ class NotificationsController < ApplicationController
   ## Make sure correct user
   def destroy
     @notification = Notification.find_by(id: params[:id])
-    @notification.destroy
+    if((cuser = current_request_user || current_volunteer_user) != nil && 
+        cuser.class.name == @notification.user_type &&
+        cuser.id == @notification.user_id)
+      @notification.destroy
+    end
     redirect_to notification_url
   end
   
