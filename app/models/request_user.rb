@@ -4,7 +4,7 @@ class RequestUser < ApplicationRecord
   before_save {self.email = email.downcase}
   validates :display_name, presence: true, length: {maximum: 60}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_URL_REGEX = /\Ahttps*:\/\/www\.\w*\.[a-z]{2,}\/?\S*\z/i
+  VALID_URL_REGEX = /\A(https*:\/\/www\.\w*\.[a-z]{2,}\/?\S*)?\z/i
   validates :email, presence: true, length: {maximum: 150},
                  format: {with: VALID_EMAIL_REGEX},
                  uniqueness: {case_sensitive: false}

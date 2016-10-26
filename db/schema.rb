@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20161024183536) do
     t.string  "password_digest"
     t.text    "about_me"
     t.string  "zip_code"
-    t.integer "points"
-    t.integer "rev_count"
+    t.string  "points"
+    t.string  "rev_count"
     t.boolean "no_search"
     t.string  "remember_digest"
     t.index ["email"], name: "index_volunteer_users_on_email", unique: true
