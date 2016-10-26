@@ -5,6 +5,11 @@ class VolunteerUsersController < ApplicationController
   
   def create
     @volunteer_user = VolunteerUser.new(volunteer_user_params)
+    @volunteer_user.user_scorecard = UserScorecard.new
+    @volunteer_user.user_scorecard.skill_proficiency = 0
+    @volunteer_user.user_scorecard.attitude = 0
+    @volunteer_user.user_scorecard.enthusiasm = 0
+    @volunteer_user.user_scorecard.reliability = 0
     @volunteer_user.points = 0
     @volunteer_user.rev_count = 0
     if @volunteer_user.save
