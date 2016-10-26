@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :volunteer_users
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
+  resources :request_post_updates, only: [:create, :destroy]
+  get '/notifications', to: 'notifications#show'
   get '/reqpostcreation', to: 'request_posts#new'
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'

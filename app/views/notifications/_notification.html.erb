@@ -1,3 +1,6 @@
 <div class = "notification">
-    <%= notification.title %> :: <%= notification.description %> <%= link_to "<delete>", notification, method: :delete %>
+     <div class = "notification-title">
+         <%= notification.title %>
+     </div>
+         <%= render inline: notification.description %> <%= link_to "<delete>", notification, method: :delete %>
 </div>

@@ -1,2 +1,20 @@
+<div class = "updates">
+Updates:
+<% if (cuser = current_request_user) != nil && cuser.request_posts.find(@request_post.id) != nil %>
+<%= form_for @request_post_update  do |f| %>
+  <%= f.hidden_field "request_post_id", :value => @request_post.id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+  <%= f.submit "Post" %>
+<% end %>
+<% end %>
+<% if !@request_post.request_post_updates.empty? %>
+<%= render @request_post.request_post_updates %>
+<% end %>
+</div>
+
 <%= @request_post.title %>, <%= @request_post.location %>, <%= @request_post.description %>,
 <%= @request_post.date %>, <%= @request_post.request_user_id %>, <%= session[:request_user_id] %>
