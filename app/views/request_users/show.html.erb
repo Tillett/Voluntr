@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 <%= @request_user.email %>, <%= @request_user.display_name %>,
 <%= @request_user.tel_num %>, <%= @request_user.fax_num %>,
 <%= @request_user.website_address %>, <%= request_user_logged_in? %>,
 
 <%= link_to "Create a request post", newreqpost_path %>
+=======
+<div class = "RequestInfo">
+    <h1><%= @request_user.display_name %></h1>
+    <p>Email: <%= @request_user.email %></p>
+    <p>Telephone Number: <%= @request_user.tel_num %></p>
+    <p>Fax Number: <%= @request_user.fax_num %></p>
+    <%= link_to "Website", @request_user.website_address %>
+    
+</div>
+>>>>>>> html-show
