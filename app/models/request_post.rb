@@ -6,4 +6,14 @@ class RequestPost < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true
   has_many :request_post_updates
+  
+      def self.search(search)
+    if search
+        search.downcase!
+          #all.select{|x| x.display_name.downcase! == search}
+           where("LOWER(title) LIKE ? or LOWER(location) LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
 end

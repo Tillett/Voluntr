@@ -5,6 +5,8 @@
     <ul class="dropdown-menu">
       <li><%= link_to "Notifications (" + current_volunteer_user.notifications.count.to_s + ")", notifications_url%></li>
       <li><%= link_to "Profile", current_volunteer_user %></li>
+      <li><%= link_to "Search Organization", requsers_path %></li>
+      <li><%= link_to "Search Postings", reqposts_path %></li>
       <li><%= link_to "Settings", '#' %></li>
       <li class="divider"></li>
       <li>

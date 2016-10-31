@@ -3,6 +3,11 @@ class RequestUsersController < ApplicationController
     @request_user = RequestUser.new
   end
   
+    def index
+    #@request_users = RequestUser.all
+    @request_users = RequestUser.search(params[:search])
+  end
+  
   def create 
     @request_user = RequestUser.new(request_user_params)
     if @request_user.save
@@ -23,4 +28,6 @@ class RequestUsersController < ApplicationController
       params.require(:request_user).permit(:email, :display_name, :tel_num,
         :fax_num, :website_address, :about_me, :password, :password_confirmation)
     end
+    
+    
 end

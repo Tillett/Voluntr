@@ -2,6 +2,11 @@ class RequestPostsController < ApplicationController
   def new
     @request_post = RequestPost.new
   end
+  
+      def index
+    #@request_posts = RequestPost.all
+    @request_posts = RequestPost.search(params[:search])
+  end
 
   def create
     @request_post = RequestPost.new(request_post_params)

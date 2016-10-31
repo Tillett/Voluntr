@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get '/faq',   to: 'static_pages#faq'
   get '/reqsignup', to: 'request_users#new'
   resources :request_users
-  resources :volunteer_users
+  resources :volunteer_users do
+    member do
+      post 'signal_interest'
+    end
+  end
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
   resources :request_post_updates, only: [:create, :destroy]
@@ -17,6 +21,9 @@ Rails.application.routes.draw do
   resources :availabilities
 
   get '/reqpostcreation', to: 'request_posts#new'
+  get '/volusers', to: 'volunteer_users#index'
+  get '/requsers', to: 'request_users#index'
+  get '/reqposts', to: 'request_posts#index'
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'
   delete '/reqlogout', to: 'request_sessions#destroy'
