@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get '/faq',   to: 'static_pages#faq'
   get '/reqsignup', to: 'request_users#new'
   resources :request_users
-  resources :volunteer_users
+  resources :volunteer_users do
+    member do
+      post 'signal_interest'
+    end
+  end
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
   resources :request_post_updates, only: [:create, :destroy]

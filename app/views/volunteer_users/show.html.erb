@@ -1,3 +1,9 @@
+<% if ((cuser = current_request_user) != nil) %>
+    <h3>
+        <%= link_to "<Notify this user you are interested in them!>", {:controller => :volunteer_users, :action => :signal_interest, :rid => cuser.id}, method: :post  %>
+    </h3>
+<% end %>
+
 <div class = "VolunteerInfo">
     <p>Email: <%= @volunteer_user.email %></p>
     <p>Username: <%= @volunteer_user.display_name %></p>
