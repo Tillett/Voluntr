@@ -20,6 +20,9 @@
     <%= f.label :password_confirmation, "Confirm" %>
     <%= f.password_field :password_confirmation %>
     
+    <%= f.label :no_search, "Hide me from user searches" %>
+    <%= f.check_box :no_search %>
+    
     <%= f.submit "Create account" %>
   
   <% end %>

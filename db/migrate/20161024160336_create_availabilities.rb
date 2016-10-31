@@ -1,21 +1,21 @@
 class CreateAvailabilities < ActiveRecord::Migration[5.0]
   def change
     create_table :availabilities do |t|
-      t.integer :volunteer_user_id
-      t.integer :mon_st
-      t.integer :mon_en
-      t.integer :tues_st
-      t.integer :tues_en
-      t.integer :wed_st
-      t.integer :wed_en
-      t.integer :thur_st
-      t.integer :thur_en
-      t.integer :fri_st
-      t.integer :fri_en
-      t.integer :sat_st
-      t.integer :sat_en
-      t.integer :sun_st
-      t.integer :sun_en
+      t.time :volunteer_user_id
+      t.time :mon_st
+      t.time :mon_en
+      t.time :tues_st
+      t.time :tues_en
+      t.time :wed_st
+      t.time :wed_en
+      t.time :thur_st
+      t.time :thur_en
+      t.time :fri_stddd
+      t.time :fri_en
+      t.time :sat_st
+      t.time :sat_en
+      t.time :sun_st
+      t.time :sun_en
 
       t.timestamps
     end

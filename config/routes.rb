@@ -9,11 +9,17 @@ Rails.application.routes.draw do
   get '/faq',   to: 'static_pages#faq'
   get '/reqsignup', to: 'request_users#new'
   resources :request_users
-  resources :volunteer_users
+  resources :volunteer_users do
+    member do
+      post 'signal_interest'
+    end
+  end
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
   resources :request_post_updates, only: [:create, :destroy]
   get '/notifications', to: 'notifications#show'
+  resources :availabilities
+
   get '/reqpostcreation', to: 'request_posts#new'
   get '/volusers', to: 'volunteer_users#index'
   get '/requsers', to: 'request_users#index'
@@ -26,6 +32,7 @@ Rails.application.routes.draw do
   post '/vollogin', to: 'volunteer_sessions#create'
   delete '/vollogout', to: 'volunteer_sessions#destroy'
   get '/newreqpost', to: 'request_posts#new'
+  get '/newavailability', to: 'availabilities#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'

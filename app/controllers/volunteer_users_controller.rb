@@ -27,6 +27,17 @@ class VolunteerUsersController < ApplicationController
     @volunteer_user = VolunteerUser.find(params[:id])
   end
   
+  def signal_interest()
+    @volunteer_user = VolunteerUser.find(params[:id])
+    ru = RequestUser.find(params[:rid]);
+    if ((cuser = current_request_user) != nil && params[:rid] == cuser.id.to_s) #that's weird!
+      @volunteer_user.notifications
+        .create(title: "#{ru.display_name} is interested in you!", 
+        description: "<%= link_to \"See their page here!\", \"#{request_users_url}/#{params[:rid]}\" %>")
+      flash.now[:success] = "Done!"
+    end
+  end
+  
   private
   
     def volunteer_user_params
