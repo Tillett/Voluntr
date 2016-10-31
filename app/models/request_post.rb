@@ -5,4 +5,5 @@ class RequestPost < ApplicationRecord
   validates :title, presence: true
   validates :location, presence: true
   validates :description, presence: true
+  has_many :request_post_updates
 end

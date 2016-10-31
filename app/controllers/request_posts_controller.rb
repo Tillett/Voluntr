@@ -20,6 +20,7 @@ class RequestPostsController < ApplicationController
   end
 
   def show
+    @request_post_update = RequestPostUpdate.new
     @request_post = RequestPost.find(params[:id])
   end
 
