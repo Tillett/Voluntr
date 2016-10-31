@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :volunteer_users
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
+  resources :availabilities
   get '/reqpostcreation', to: 'request_posts#new'
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   post '/vollogin', to: 'volunteer_sessions#create'
   delete '/vollogout', to: 'volunteer_sessions#destroy'
   get '/newreqpost', to: 'request_posts#new'
+  get '/newavailability', to: 'availabilities#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'

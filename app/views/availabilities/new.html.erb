@@ -1,0 +1,47 @@
+<%= form_for(@availability) do |f| %>
+  <%= f.label :mon_st %>
+  <%= f.number_field :mon_st %>
+  
+  <%= f.label :mon_en %>
+  <%= f.number_field :mon_en %>
+  
+  <%= f.label :tues_st %>
+  <%= f.number_field :tues_st %>
+  
+  <%= f.label :tues_en %>
+  <%= f.number_field :tues_en %>
+  
+  <%= f.label :wed_st %>
+  <%= f.time_field :wed_st %>
+  
+  <%= f.label :wed_en %>
+  <%= f.time_field :wed_en %>
+  
+  <%= f.label :thur_st %>
+  <%= f.time_field :thur_st %>
+  
+  <%= f.label :thur_en %>
+  <%= f.time_field :thur_en %>
+  
+  <%= f.label :fri_st %>
+  <%= f.time_field :fri_st %>
+  
+  <%= f.label :fri_en %>
+  <%= f.time_field :fri_en %>
+  
+  <%= f.label :sat_st %>
+  <%= f.time_field :sat_st %>
+  
+  <%= f.label :sat_en %>
+  <%= f.time_field :sat_en %>
+  
+  <%= f.label :sun_st %>
+  <%= f.time_field :sun_st %>
+  
+  <%= f.label :sun_en %>
+  <%= f.time_field :sun_en %>
+  
+  <%= f.submit "Update" %>
+  
+<% end %>
+
