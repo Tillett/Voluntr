@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :request_post_updates, only: [:create, :destroy]
   get '/notifications', to: 'notifications#show'
   get '/reqpostcreation', to: 'request_posts#new'
+  get '/volusers', to: 'volunteer_users#index'
+  get '/requsers', to: 'request_users#index'
+  get '/reqposts', to: 'request_posts#index'
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'
   delete '/reqlogout', to: 'request_sessions#destroy'

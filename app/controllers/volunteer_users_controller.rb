@@ -1,4 +1,10 @@
 class VolunteerUsersController < ApplicationController
+  
+  def index
+    #@volunteer_users = VolunteerUser.all
+    @volunteer_users = VolunteerUser.search(params[:search])
+  end
+  
   def new
     @volunteer_user = VolunteerUser.new
   end

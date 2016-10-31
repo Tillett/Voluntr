@@ -1,6 +1,7 @@
 <div class = "VolunteerInfo">
+    <h1><%= @volunteer_user.display_name %></h1>
+    
     <p>Email: <%= @volunteer_user.email %></p>
-    <p>Username: <%= @volunteer_user.display_name %></p>
     <p>Zip Code: <%= @volunteer_user.zip_code %></p>
     <p>Review Count: <%= @volunteer_user.rev_count %></p>
     <p>Points: <%= @volunteer_user.points %></p>

@@ -1,0 +1,17 @@
+<% provide(:title, 'Search Volunteers') %>
+<h1>Search for Volunteers</h1>
+
+<%= form_tag volusers_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<ul class="volunteer_users">
+  <% @volunteer_users.each do |user| %>
+    <li>
+      <%= link_to user.display_name, user %>
+    </li>
+  <% end %>
+</ul>

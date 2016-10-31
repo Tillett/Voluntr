@@ -41,4 +41,15 @@ class VolunteerUser < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+  
+  def self.search(search)
+    if search
+        search.downcase!
+          #all.select{|x| x.display_name.downcase! == search}
+           where("LOWER(display_name) LIKE ? or LOWER(email) LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
+  
 end
