@@ -4,6 +4,7 @@ class AvailabilitiesController < ApplicationController
   end
   
   def create
+    Availability.where(volunteer_user_id: session[:volunteer_user_id]).delete_all
     @availability = Availability.new(availability_params)
     @availability.volunteer_user_id = session[:volunteer_user_id]
     if @availability.save
@@ -17,6 +18,10 @@ class AvailabilitiesController < ApplicationController
   
   def show
     @availability = Availability.find(params[:id])
+  end
+  
+  def destroy
+    Availability.find(session[:volunteer_user_id]).destroy
   end
   
   private

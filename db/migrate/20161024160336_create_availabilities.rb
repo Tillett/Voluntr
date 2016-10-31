@@ -1,7 +1,7 @@
 class CreateAvailabilities < ActiveRecord::Migration[5.0]
   def change
     create_table :availabilities do |t|
-      t.time :volunteer_user_id
+      t.integer :volunteer_user_id
       t.time :mon_st
       t.time :mon_en
       t.time :tues_st
@@ -10,7 +10,7 @@ class CreateAvailabilities < ActiveRecord::Migration[5.0]
       t.time :wed_en
       t.time :thur_st
       t.time :thur_en
-      t.time :fri_stddd
+      t.time :fri_st
       t.time :fri_en
       t.time :sat_st
       t.time :sat_en
@@ -19,5 +19,6 @@ class CreateAvailabilities < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_index :availabilities, :volunteer_user_id, unique: true
   end
 end
