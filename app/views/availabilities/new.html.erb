@@ -1,15 +1,15 @@
 <%= form_for(@availability) do |f| %>
   <%= f.label :mon_st %>
-  <%= f.number_field :mon_st %>
+  <%= f.time_field :mon_st %>
   
   <%= f.label :mon_en %>
-  <%= f.number_field :mon_en %>
+  <%= f.time_field :mon_en %>
   
   <%= f.label :tues_st %>
-  <%= f.number_field :tues_st %>
+  <%= f.time_field :tues_st %>
   
   <%= f.label :tues_en %>
-  <%= f.number_field :tues_en %>
+  <%= f.time_field :tues_en %>
   
   <%= f.label :wed_st %>
   <%= f.time_field :wed_st %>
