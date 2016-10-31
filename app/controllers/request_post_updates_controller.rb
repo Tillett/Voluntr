@@ -19,11 +19,14 @@ class RequestPostUpdatesController < ApplicationController
     
     
     def destroy
-        @rpu = RequestPostUpdate.find(params[:id])
-        if((cuser = current_request_user) != nil &&
-            cuser.request_posts.find(@rpu.request_post_id) != nil)
-            @rpu.destroy
-        end
+        rp = RequestPost.find(@request_post_update.request_post_id)
+        @request_post_update.destroy
+        redirect_to rp
+        #@rpu = RequestPostUpdate.find(params[:id])
+        #if((cuser = current_request_user) != nil &&
+        #    cuser.request_posts.find(@rpu.request_post_id) != nil)
+        #    @rpu.destroy
+        #end
     end
     
     private
