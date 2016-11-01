@@ -30,6 +30,11 @@ class RequestPostsController < ApplicationController
   end
 
   def destroy
+    @request_post = RequestPost.find(params[:id])
+    if(requester_has_post(@request_post.id))
+      @request_post.destroy
+      redirect_to root_url
+    end
   end
   
   private

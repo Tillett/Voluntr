@@ -5,13 +5,13 @@ class RequestPostUpdatesController < ApplicationController
     
     def create
         ##verifies correct user for this request_post_id!!!
-        if ((cuser = current_request_user) != nil  &&
-             (upd = cuser.request_posts.
-                find(params[:request_post_update][:request_post_id])) != nil)
-            @request_post_update = RequestPostUpdate.new(request_post_update_params)
-            @request_post_update.request_post_id = params[:request_post_update][:request_post_id]
+        id = params[:request_post_update][:request_post_id]
+        if (requester_has_post(id))
+            @request_post_update = 
+                            RequestPostUpdate.new(request_post_update_params)
+            @request_post_update.request_post_id = id
             if @request_post_update.save
-                redirect_to upd
+                redirect_to request_post_path(id)
             else
                 redirect_to root_url
             end
@@ -24,8 +24,7 @@ class RequestPostUpdatesController < ApplicationController
         #redirect_to rp
         rpu = RequestPostUpdate.find(params[:id])
         rp = RequestPost.find(rpu.request_post_id)
-        if((cuser = current_request_user) != nil &&
-            cuser.request_posts.find(rpu.request_post_id) != nil)
+        if (requester_has_post(rp.id))
             rpu.destroy
             redirect_to rp
         end

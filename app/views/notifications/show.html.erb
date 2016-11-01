@@ -1,4 +1,1 @@
-<% cuser = current_request_user || current_volunteer_user %>
-<% if cuser != nil %>
-    <%= render cuser.notifications %>
-<% end %>
+<%= render @notifications %>

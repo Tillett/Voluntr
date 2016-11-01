@@ -1,6 +1,13 @@
 <div class = "updates">
+<div align="center">
+  <% b = requester_has_post(@request_post.id) %>
+<% if b %>
+  <%= link_to "<Delete this listing>", @request_post, method: :delete %>
+<% end %>
+</div>
 Updates:
-<% if (cuser = current_request_user) != nil && cuser.request_posts.find(@request_post.id) != nil %>
+<% if b %>
+<div class="notification-update">
 <%= form_for @request_post_update  do |f| %>
   <%= f.hidden_field "request_post_id", :value => @request_post.id %>
   <%= f.label :title %>
@@ -10,7 +17,8 @@ Updates:
   <%= f.text_field :text %>
   <%= f.submit "Post" %>
 <% end %>
-<% end %>
+</div>
+<% end %> 
 <% if !@request_post.request_post_updates.empty? %>
 <%= render @request_post.request_post_updates %>
 <% end %>

@@ -2,6 +2,9 @@ class VolunteerUsersController < ApplicationController
   
   def index
     #@volunteer_users = VolunteerUser.all
+    if (!current_request_user)
+      redirect_to root_url
+    end
     @volunteer_users = VolunteerUser.search(params[:search])
   end
   
@@ -30,11 +33,12 @@ class VolunteerUsersController < ApplicationController
   def signal_interest()
     @volunteer_user = VolunteerUser.find(params[:id])
     ru = RequestUser.find(params[:rid]);
-    if ((cuser = current_request_user) != nil && params[:rid] == cuser.id.to_s) #that's weird!
+    if (requesters_id_is(ru.id))
       @volunteer_user.notifications
         .create(title: "#{ru.display_name} is interested in you!", 
         description: "<%= link_to \"See their page here!\", \"#{request_users_url}/#{params[:rid]}\" %>")
-      flash.now[:success] = "Done!"
+      flash[:success] = "This user has been notified!"
+      redirect_to @volunteer_user
     end
   end
   
