@@ -2,7 +2,7 @@
 <p1><%= link_to "Already have an account? Sign in here", vollogin_path %></p1>
 <p>
   <%= form_for(@volunteer_user) do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/vol_error_messages' %>
   
     <%= f.label :email %>
     <%= f.text_field :email, class: 'form-control' %>
