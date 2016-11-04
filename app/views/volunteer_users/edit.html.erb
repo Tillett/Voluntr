@@ -4,13 +4,16 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@volunteer_user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/vol_error_messages' %>
 
       <%= f.label :display_name %>
       <%= f.text_field :display_name, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+      
+      <%= f.label :about_me %>
+      <%= f.password_field :about_me, class: 'form-control' %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
