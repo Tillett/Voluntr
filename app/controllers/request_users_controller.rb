@@ -3,7 +3,7 @@ class RequestUsersController < ApplicationController
     @request_user = RequestUser.new
   end
   
-    def index
+  def index
     #@request_users = RequestUser.all
     @request_users = RequestUser.search(params[:search])
   end
@@ -17,6 +17,20 @@ class RequestUsersController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def update
+    @request_user = RequestUser.find(params[:id])
+    if @request_user.update_attributes(request_user_params)
+      @request_user = request_user_params
+      redirect_to @request_user
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @request_user = RequestUser.find(params[:id])
   end
   
   def show

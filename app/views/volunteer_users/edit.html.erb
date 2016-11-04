@@ -12,6 +12,9 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
       
+      <%= f.label :zip_code, "Zip Code" %>
+      <%= f.text_field :zip_code, class: 'form-control' %>
+      
       <%= f.label :about_me %>
       <%= f.text_field :about_me, class: 'form-control' %>
 
@@ -20,6 +23,9 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+    
+      <%= f.label :no_search, "Hide me from user searches" %>
+      <%= f.check_box :no_search %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>

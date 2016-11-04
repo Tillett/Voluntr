@@ -12,7 +12,7 @@ class VolunteerUser < ApplicationRecord
   validates :zip_code, presence: true, length: {maximum: 10},
                 format: {with: VALID_ZIP_REGEX}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   has_one :availability
   has_one :user_scorecard
   has_many :skills

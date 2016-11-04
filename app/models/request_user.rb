@@ -12,7 +12,7 @@ class RequestUser < ApplicationRecord
                  uniqueness: {case_sensitive: false}
   validates :website_address, format: {with: VALID_URL_REGEX}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   has_one :request_user_scorecard
   has_many :notifications, :as => :user
   
