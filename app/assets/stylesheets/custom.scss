@@ -38,7 +38,7 @@ textarea {
 
 .footer {
   margin-top: 140px;
-  align-content: center;
+  align-content: right;
   position: bottom;
   right: 0;
   bottom: 0;
@@ -140,4 +140,19 @@ checkbox {
   border-style: solid;
   border-color: #c0c0c0;
   width: 65%;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
 }
