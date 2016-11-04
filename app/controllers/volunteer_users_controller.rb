@@ -26,6 +26,10 @@ class VolunteerUsersController < ApplicationController
     end
   end
   
+  def edit
+    @volunteer_user = VolunteerUser.find(params[:id])
+  end
+  
   def show
     @volunteer_user = VolunteerUser.find(params[:id])
   end

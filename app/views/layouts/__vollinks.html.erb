@@ -7,7 +7,7 @@
       <li><%= link_to "Profile", current_volunteer_user %></li>
       <li><%= link_to "Search Organization", requsers_path %></li>
       <li><%= link_to "Search Postings", reqposts_path %></li>
-      <li><%= link_to "Settings", '#' %></li>
+      <li><%= link_to "Settings", edit_volunteer_user_path(current_volunteer_user) %></li>
       <li class="divider"></li>
       <li>
         <%= link_to "Log out", vollogout_path, method: :delete %>
