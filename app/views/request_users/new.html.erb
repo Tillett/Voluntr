@@ -2,30 +2,31 @@
 <p1><%= link_to "Already have an account? Sign in here", reqlogin_path %></p1>
 <p>
   <%= form_for(@request_user) do |f| %>
-  
+    <%= render 'shared/req_error_messages' %>
+
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'form-control' %>
     
     <%= f.label :display_name, "Display Name" %>
-    <%= f.text_field :display_name %>
+    <%= f.text_field :display_name, class: 'form-control' %>
     
     <%= f.label :tel_num, "Telephone Number" %>
-    <%= f.text_field :tel_num %>
+    <%= f.text_field :tel_num, class: 'form-control' %>
     
     <%= f.label :fax_num, "Fax Number" %>
-    <%= f.text_field :fax_num %>
+    <%= f.text_field :fax_num, class: 'form-control' %>
     
     <%= f.label :website_address, "Website" %>
-    <%= f.text_field :website_address %>
+    <%= f.text_field :website_address, class: 'form-control' %>
     
     <%= f.label :about_me, "About Me" %>
-    <%= f.text_area :about_me %>
+    <%= f.text_area :about_me, class: 'form-control' %>
     
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: 'form-control' %>
     
     <%= f.label :password_confirmation, "Confirm" %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
     
     <%= f.submit "Create account" %>
   

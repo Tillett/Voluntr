@@ -7,7 +7,7 @@
       <li><%= link_to "Notifications (" + current_request_user.notifications.count.to_s + ")", notifications_url%></li>
       <li><%= link_to "Profile", current_request_user %></li>
       <li><%= link_to "Search", volusers_path %></li>
-      <li><%= link_to "Settings", '#' %></li>
+      <li><%= link_to "Settings", edit_request_user_path(current_request_user) %></li>
       <li class="divider"></li>
       <li>
         <%= link_to "Log out", reqlogout_path, method: :delete %>
