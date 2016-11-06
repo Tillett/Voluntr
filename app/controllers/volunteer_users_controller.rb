@@ -38,6 +38,9 @@ class VolunteerUsersController < ApplicationController
   
   def edit
     @volunteer_user = VolunteerUser.find(params[:id])
+    if !users_id_is(@volunteer_user.id)
+      redirect_to root_url
+    end
   end
   
   def show

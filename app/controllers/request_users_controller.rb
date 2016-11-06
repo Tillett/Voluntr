@@ -31,6 +31,9 @@ class RequestUsersController < ApplicationController
 
   def edit
     @request_user = RequestUser.find(params[:id])
+    if !requesters_id_is(@request_user.id)
+      redirect_to root_url
+    end
   end
   
   def show
