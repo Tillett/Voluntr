@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
   
   helper_method :users_id_is
-  def user_id_is(id)
+  def users_id_is(id)
     return ((usr = current_volunteer_user) && usr.id == id)
   end
   
