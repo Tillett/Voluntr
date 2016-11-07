@@ -11,6 +11,18 @@ section {
   overflow: auto;
 }
 
+.section-left {
+    float:left;
+    width:50%;
+    margin:0 1.5;
+}
+
+.section-right {
+    width:50%;
+    margin:0 1.5;
+    float:right;
+}
+
 textarea {
   resize: vertical;
 }

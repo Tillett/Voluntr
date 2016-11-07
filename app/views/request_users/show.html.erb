@@ -1,8 +1,6 @@
 <div class = "RequestInfo">
     <h1><%= @request_user.display_name %></h1>
     
-    <%= link_to "Create a request post", newreqpost_path %>
-    
     <p>Email: <%= @request_user.email %></p>
     
     <% if !@request_user.tel_num.empty? %>

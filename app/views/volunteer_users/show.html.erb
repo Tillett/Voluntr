@@ -4,14 +4,18 @@
     </h3>
 <% end %>
 
-<div class = "VolunteerInfo">
-    <h1><%= @volunteer_user.display_name %></h1>
+<div class = "section-left">
     
+    <h1><%= @volunteer_user.display_name %></h1>
     <p>Email: <%= @volunteer_user.email %></p>
     <p>Zip Code: <%= @volunteer_user.zip_code %></p>
     <p>Review Count: <%= @volunteer_user.rev_count %></p>
     <p>Points: <%= @volunteer_user.points %></p>
+    </div>
+    
+<div class = "section-right">
     <h3>About Me</h3>
     <p><%= @volunteer_user.about_me %></p>
     <P><%= link_to "Edit availability", newavailability_path %></P>
-</div>
+    </div>
+
