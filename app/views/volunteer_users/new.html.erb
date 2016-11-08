@@ -16,6 +16,9 @@
     <%= f.label :about_me, "About Me" %>
     <%= f.text_area :about_me, class: 'form-control' %>
     
+    <%= f.collection_select :skill_ids, Skill.order(:title), :id, :title, {}, 
+    { multiple: true, class: "chosen-select" } %>
+    
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control' %>
     

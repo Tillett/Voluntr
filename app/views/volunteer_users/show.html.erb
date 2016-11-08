@@ -20,6 +20,9 @@
         <section class = "section-right">
         <h3>About Me</h3>
         <p><%= @volunteer_user.about_me %></p>
+        <% if @volunteer_user.skills.any? %>
+            <p>Skills: <%= render @volunteer_user.skills %></p>
+        <% end %>
         <P><%= link_to "Edit availability", newavailability_path %></P>
         </section>
     

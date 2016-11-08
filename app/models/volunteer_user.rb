@@ -17,6 +17,8 @@ class VolunteerUser < ApplicationRecord
   has_one :user_scorecard
   has_many :skills
   has_many :notifications, :as => :user
+  has_many :volunteer_user_skills, dependent: :destroy
+  has_many :skills, through: :volunteer_user_skills
   
   def VolunteerUser.new_token
     SecureRandom.urlsafe_base64
