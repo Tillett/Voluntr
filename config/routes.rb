@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'request_post_jobs/new'
+
   get 'volunteer_sessions/new'
 
   get 'volunteer_users/new'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   resources :request_post_updates, only: [:create, :destroy]
   get '/notifications', to: 'notifications#show'
   resources :availabilities
-
+  resources :request_post_jobs, only: [:create, :destroy]
   get '/reqpostcreation', to: 'request_posts#new'
   get '/volusers', to: 'volunteer_users#index'
   get '/requsers', to: 'request_users#index'

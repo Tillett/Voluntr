@@ -3,7 +3,7 @@ class RequestPostsController < ApplicationController
     @request_post = RequestPost.new
   end
   
-      def index
+  def index
     #@request_posts = RequestPost.all
     @request_posts = RequestPost.search(params[:search])
   end

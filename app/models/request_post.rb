@@ -6,6 +6,7 @@ class RequestPost < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true
   has_many :request_post_updates
+  has_many :request_post_jobs
   
     def self.search(search)
     if search

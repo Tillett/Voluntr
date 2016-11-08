@@ -3,6 +3,7 @@
   <% b = requester_has_post(@request_post.id) %>
 <% if b %>
   <%= link_to "<Delete this listing>", @request_post, method: :delete %>
+  <%= link_to "<Create a job for this listing>", "/request_post_jobs/new?id=#{@request_post.id}" %>
 <% end %>
 </div>
 Updates:
@@ -24,5 +25,20 @@ Updates:
 <% end %>
 </div>
 
-<%= @request_post.title %>, <%= @request_post.location %>, <%= @request_post.description %>,
-<%= @request_post.date %>, <%= @request_post.request_user_id %>, <%= session[:request_user_id] %>
+<p>Title: <%= @request_post.title %></p>
+    
+<% if !@request_post.location.empty? %>
+  <p>Location: <%= @request_post.location %></p>
+<% end %>
+    
+<% if !@request_post.description.empty? %>
+  <p>Description: <%= @request_post.description %></p>
+<% end %>
+    
+<p>Date of Event: <%= @request_post.date %></p>
+        
+<p>Event Coordinator: <%= @request_post.request_user.display_name %></p>
+
+<% for i in @request_post.request_post_jobs %>
+ <li><%= i.title %> -- <%= i.description %> -- <%= if i.user_id != nil then VolunteerUser.find(i.user_id).display_name end %></li>
+<% end %>
