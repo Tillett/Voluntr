@@ -1,20 +1,32 @@
 <div class = "RequestInfo">
-    <h1><%= @request_user.display_name %></h1>
     
-    <p>Email: <%= @request_user.email %></p>
+    <section class = "container-section">
     
-    <% if !@request_user.tel_num.empty? %>
-        <p>Telephone Number: <%= @request_user.tel_num %></p>
-    <% end %>
+        <section class = "section-left">
     
-    <% if !@request_user.fax_num.empty? %>
-        <p>Fax Number: <%= @request_user.fax_num %></p>
-    <% end %>
+            <h1><%= @request_user.display_name %></h1>
     
-    <% if @request_user.website_address.empty? %>
-        <p>No Website</p>
-    <% else %>
-        <%= link_to "Website", @request_user.website_address %>
-    <% end %>
+            <p>Email: <%= @request_user.email %></p>
     
+            <% if !@request_user.tel_num.empty? %>
+                <p>Telephone Number: <%= @request_user.tel_num %></p>
+            <% end %>
+    
+            <% if !@request_user.fax_num.empty? %>
+                <p>Fax Number: <%= @request_user.fax_num %></p>
+            <% end %>
+        </section>
+    
+        <section class = "section-right">
+            <h3>About Me</h3>
+            
+            <p><%= @request_user.about_me %></p>
+            <% if @request_user.website_address.empty? %>
+                <p>No Website</p>
+           <% else %>
+                <%= link_to "Website", @request_user.website_address %>
+            <% end %>
+        </section>
+    
+    </section>
 </div>
