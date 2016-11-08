@@ -38,6 +38,7 @@ Updates:
 <p>Date of Event: <%= @request_post.date %></p>
         
 <p>Event Coordinator: <%= @request_post.request_user.display_name %></p>
+    
 
 <% for i in @request_post.request_post_jobs %>
  <li><%= i.title %> -- <%= i.description %> -- <%= if i.user_id != nil then VolunteerUser.find(i.user_id).display_name end %></li>
