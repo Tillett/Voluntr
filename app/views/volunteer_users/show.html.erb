@@ -1,17 +1,16 @@
-<% if ((cuser = current_request_user) != nil) %>
-    <h3>
+<div align="center">
+    <% if ((cuser = current_request_user) != nil) %>
         <%= link_to "<Notify this user you are interested in them!>", {:controller => :volunteer_users, :action => :signal_interest, :rid => cuser.id}, method: :post  %>
-    </h3>
-<% end %>
+    <% end %>
+</div>
 
 <div class = "section-left">
-    
     <h1><%= @volunteer_user.display_name %></h1>
     <p>Email: <%= @volunteer_user.email %></p>
     <p>Zip Code: <%= @volunteer_user.zip_code %></p>
     <p>Review Count: <%= @volunteer_user.rev_count %></p>
     <p>Points: <%= @volunteer_user.points %></p>
-    </div>
+</div>
     
 <div class = "section-right">
     <h3>About Me</h3>
