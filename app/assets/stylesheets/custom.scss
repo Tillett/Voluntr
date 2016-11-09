@@ -11,6 +11,14 @@ section {
   overflow: auto;
 }
 
+.container-section{
+    margin:auto;
+    background-color: #f7f7f7;
+    border-style: solid;
+    border-color: #c0c0c0;
+    padding:40px;
+}
+
 .section-left {
     float:left;
     width:50%;
@@ -40,10 +48,23 @@ textarea {
     margin: auto;
     width: 75%;
     padding: 25px;
-    background-color: #f7f7f7;
-    border-style: solid;
-    border-color: #c0c0c0;
+    overflow:auto;
 }
+
+// checkboxes
+
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+ }
+.checkbox_container input {
+  display: inline;
+ }
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
 
 // footer
 

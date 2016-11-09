@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161107195749) do
+=======
+ActiveRecord::Schema.define(version: 20161108035607) do
+>>>>>>> 2f0b79a6f14d9d39f99626f64dfb740b949c4d05
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
@@ -94,11 +98,9 @@ ActiveRecord::Schema.define(version: 20161107195749) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.integer  "volunteer_user_id"
-    t.string   "skill_name"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["volunteer_user_id"], name: "index_skills_on_volunteer_user_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_scorecards", force: :cascade do |t|
@@ -109,6 +111,16 @@ ActiveRecord::Schema.define(version: 20161107195749) do
     t.integer  "reliability"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "volunteer_user_skills", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "volunteer_user_id"
+    t.integer  "skill_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["skill_id"], name: "index_volunteer_user_skills_on_skill_id"
+    t.index ["volunteer_user_id"], name: "index_volunteer_user_skills_on_volunteer_user_id"
   end
 
   create_table "volunteer_users", force: :cascade do |t|
