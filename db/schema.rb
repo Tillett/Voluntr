@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161107195749) do
-=======
-ActiveRecord::Schema.define(version: 20161108035607) do
->>>>>>> 2f0b79a6f14d9d39f99626f64dfb740b949c4d05
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
