@@ -54,7 +54,6 @@ class VolunteerUser < ApplicationRecord
     end
   end
   
-  ## needs review
   def review(skill, attit, enthu, relia)
     
     ##increase review count
@@ -66,14 +65,14 @@ class VolunteerUser < ApplicationRecord
     ##average based on review count
     inverseCount = 1.0/count
     
-    @user_scorecard.skill_proficiency =
-      inverseCount * @user_scorecard.skill_proficiency + (count - inverseCount) * skill
-    @user_scorecard.attitude =
-      inverseCount * @user_scorecard.attitude + (count - inverseCount) * attit
-    @user_scorecard.enthusiasm =
-      inverseCount * @user_scorecard.enthusiasm + (count - inverseCount) * enthu
-    @user_scorecard.reliability =
-      inverseCount * @user_scorecard.reliability + (count - inverseCount) * relia
+    self.skill_proficiency =
+      inverseCount * :skill_proficiency + (count - inverseCount) * skill
+    self.attitude =
+      inverseCount * :attitude + (count - inverseCount) * attit
+    self.enthusiasm =
+      inverseCount * :enthusiasm + (count - inverseCount) * enthu
+    self.reliability =
+      inverseCount * :reliability + (count - inverseCount) * relia
   end
   
 end
