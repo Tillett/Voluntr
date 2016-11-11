@@ -15,6 +15,22 @@ class RequestUser < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   has_one :request_user_scorecard
   has_many :notifications, :as => :user
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  
+  has_many :followers, through: :passive_relationships, source: :follower
+  
+  def follow(other)
+    active_relationships.create(followed_id: other.id)
+  end
+  
+  def unfollow(other)
+    active_relationships.find_by(followed_id: other.id).destroy
+  end
+  
+  def following?(other)
+    following.include?(other)
+  end
+  
   
   def RequestUser.new_token
     SecureRandom.urlsafe_base64
@@ -40,13 +56,15 @@ class RequestUser < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
   
-    def self.search(search)
+  def self.search(search)
     if search
-        search.downcase!
-          #all.select{|x| x.display_name.downcase! == search}
-           where("LOWER(display_name) LIKE ? or LOWER(email) LIKE ?", "%#{search}%", "%#{search}%")
+      search.downcase!
+        #all.select{|x| x.display_name.downcase! == search}
+        where("LOWER(display_name) LIKE ? or LOWER(email) LIKE ?", "%#{search}%", "%#{search}%")
     else
       all
     end
-  end
+  end    
+    
+    
 end

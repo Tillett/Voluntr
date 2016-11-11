@@ -19,6 +19,9 @@ class VolunteerUser < ApplicationRecord
   has_many :notifications, :as => :user
   has_many :volunteer_user_skills, dependent: :destroy
   has_many :skills, through: :volunteer_user_skills
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  
+  has_many :following, through: :active_relationships, source: :followed
   
   def VolunteerUser.new_token
     SecureRandom.urlsafe_base64
@@ -52,6 +55,18 @@ class VolunteerUser < ApplicationRecord
     else
       all
     end
+  end
+  
+  def follow(other)
+    active_relationships.create(followed_id: other.id)
+  end
+  
+  def unfollow(other)
+    active_relationships.find_by(followed_id: other.id).destroy
+  end
+  
+  def following?(other)
+    following.include?(other)
   end
   
   
