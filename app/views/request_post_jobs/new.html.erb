@@ -1,0 +1,13 @@
+<%= form_for(@request_post_job) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  
+  <%= f.label :avail %>
+  <%= f.date_field :avail %>
+  
+  <%= hidden_field_tag(:id, params[:id]) %>
+  <%= f.submit "Post" %>
+<% end %>
