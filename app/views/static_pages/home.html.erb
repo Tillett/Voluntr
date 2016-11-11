@@ -4,18 +4,20 @@
     </h1>
 </center>
 
-<section class = "container-section">
-<p>
-    <%= link_to "Looking for volunteers? Sign up here.", reqsignup_path %>
-</p>
-<p>
-    <%= link_to "Interested in volunteering? Sign up here.", volsignup_path %>
-</p>
+<section class="container-section">
+    <p>
+        <%= link_to "Looking for volunteers? Sign up here.", reqsignup_path %>
+    </p>
+    <p>
+        <%= link_to "Interested in volunteering? Sign up here.", volsignup_path %>
+    </p>
 
-Some Recent Requests:
-<% for i in RequestPost.take(5) %>
-<div class = "notification">
-    <%= i.title %> -> <%= i.description.truncate(25, omission: "...") %> <%= link_to "<click me!>", i %>
-</div>
-<% end %>
+    Some Recent Requests:
+    <% for i in RequestPost.take(5) %>
+        <div class="notification">
+            <%= i.title %> ->
+                <%= i.description.truncate(25, omission: "...") %>
+                    <%= link_to "<click me!>", i %>
+        </div>
+        <% end %>
 </section>

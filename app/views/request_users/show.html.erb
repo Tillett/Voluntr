@@ -1,32 +1,60 @@
-<div class = "RequestInfo">
-    
-    <section class = "container-section">
-    
-        <section class = "section-left">
-    
-            <h1><%= @request_user.display_name %></h1>
-    
-            <p>Email: <%= @request_user.email %></p>
-    
+<div class="RequestInfo">
+
+    <section class="container-section">
+
+        <section class="section-left">
+            <h1>
+                <%= @request_user.display_name %>
+            </h1>
+
+            <p>Email:
+                <%= @request_user.email %>
+            </p>
             <% if !@request_user.tel_num.empty? %>
-                <p>Telephone Number: <%= @request_user.tel_num %></p>
-            <% end %>
-    
-            <% if !@request_user.fax_num.empty? %>
-                <p>Fax Number: <%= @request_user.fax_num %></p>
-            <% end %>
+                <p>Telephone Number:
+                    <%= @request_user.tel_num %>
+                </p>
+                <% end %>
+                    <% if !@request_user.fax_num.empty? %>
+                        <p>Fax Number:
+                            <%= @request_user.fax_num %>
+                        </p>
+                        <% end %>
         </section>
-    
-        <section class = "section-right">
+
+        <section class="section-right">
             <h3>About Me</h3>
-            
-            <p><%= @request_user.about_me %></p>
+            <p>
+                <%= @request_user.about_me %>
+            </p>
             <% if @request_user.website_address.empty? %>
                 <p>No Website</p>
-           <% else %>
-                <%= link_to "Website", @request_user.website_address %>
-            <% end %>
+                <% else %>
+                    <%= link_to "Website", @request_user.website_address %>
+                        <% end %>
         </section>
-    
+
+    </section>
+</div>
+
+<div class="OrganizationScore">
+    <section class="container-section">
+
+        <section class="section-left">
+            <h3>Scorecard</h3>
+            <p>scorecard placeholder</p>
+        </section>
+
+        <section class="section-right">
+            <h3>Recent Events</h3>
+            <p>Placeholder</p>
+            <!--<div class="notification">-->
+
+            <!--    <%# @request_user.request_posts.each do |request_post| %>-->
+            <!--        <#%= request_post.title %>-->
+            <!--            <#% end %>-->
+            <!--</div>-->
+        </section>
+
     </section>
 </div>

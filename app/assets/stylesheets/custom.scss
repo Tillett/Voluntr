@@ -11,24 +11,24 @@ section {
   overflow: auto;
 }
 
-.container-section{
-    margin:auto;
-    background-color: #f7f7f7;
-    border-style: solid;
-    border-color: #c0c0c0;
-    padding:40px;
+.container-section {
+  margin: auto;
+  background-color: #f7f7f7;
+  border-style: solid;
+  border-color: #c0c0c0;
+  padding: 40px;
 }
 
 .section-left {
-    float:left;
-    width:50%;
-    margin:0 1.5;
+  float: left;
+  width: 50%;
+  margin: 0 1.5;
 }
 
 .section-right {
-    width:50%;
-    margin:0 1.5;
-    float:right;
+  width: 50%;
+  margin: 0 1.5;
+  float: right;
 }
 
 textarea {
@@ -43,31 +43,31 @@ textarea {
   margin-bottom: 10px;
 }
 
-.container-body{
-    overflow: auto;
-    margin: auto;
-    width: 75%;
-    padding: 25px;
-    overflow:auto;
+.container-body {
+  overflow: auto;
+  margin: auto;
+  width: 75%;
+  padding: 25px;
+  overflow: auto;
 }
 
 // checkboxes
-
 .checkbox_container {
   display: inline-block;
   vertical-align: -1px;
   margin: 5px;
- }
+}
+
 .checkbox_container input {
   display: inline;
- }
-.checkbox_container .collection_check_boxes{
+}
+
+.checkbox_container .collection_check_boxes {
   display: inline;
   vertical-align: -5px;
- }
+}
 
 // footer
-
 .footer {
   vertical-align: middle;
   position: bottom;
@@ -80,22 +80,23 @@ textarea {
 }
 
 .footer-button {
-    a{
-        color: #ffffff;
-    }
-    font-size: 10px;
-    display: inline;
-    padding: 10px;
-    margin: 5px;
-    background-color: #66ccff;
-    vertical-align: middle;
+  a {
+    color: #ffffff;
+  }
+  font-size: 10px;
+  display: inline;
+  padding: 10px;
+  margin: 5px;
+  background-color: #66ccff;
+  vertical-align: middle;
 }
 
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
+
 
 /* miscellaneous */
 
@@ -106,10 +107,14 @@ textarea {
   margin-top: 45px;
   @include box_sizing;
 }
-  
+
+
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -133,9 +138,10 @@ checkbox {
   margin-left: 0;
 }
 
+
 /* notifications */
 
-.notification{
+.notification {
   padding: 15px;
   margin: 8px;
   border-style: solid;
@@ -149,7 +155,7 @@ checkbox {
   font-style: oblique;
 }
 
-.notification-update{
+.notification-update {
   font-size: 12px;
   padding: 15px;
   margin: 8px;
@@ -164,7 +170,6 @@ checkbox {
   font-size: 16px;
   font-style: oblique;
 }
-
 
 .updates {
   padding: 10px;

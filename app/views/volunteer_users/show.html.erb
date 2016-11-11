@@ -1,49 +1,73 @@
 <div align="center">
     <% if ((cuser = current_request_user) != nil) %>
         <%= link_to "<Notify this user you are interested in them!>", {:controller => :volunteer_users, :action => :signal_interest, :rid => cuser.id}, method: :post  %>
-    <% end %>
+            <% end %>
 </div>
 
-<div class = "VolunteerInfo">
-    <section class = "container-section">
-    
-        <section class = "section-left">
-        <h1><%= @volunteer_user.display_name %></h1>
-    
-        <p>Email: <%= @volunteer_user.email %></p>
-        <p>Zip Code: <%= @volunteer_user.zip_code %></p>
-        <p>Review Count: <%= @volunteer_user.rev_count %></p>
-        <p>Points: <%= @volunteer_user.points %></p>
+<div class="VolunteerInfo">
+    <section class="container-section">
+
+        <section class="section-left">
+            <h1>
+                <%= @volunteer_user.display_name %>
+            </h1>
+
+            <p>Email:
+                <%= @volunteer_user.email %>
+            </p>
+            <p>Zip Code:
+                <%= @volunteer_user.zip_code %>
+            </p>
+            <p>Review Count:
+                <%= @volunteer_user.rev_count %>
+            </p>
+            <p>Points:
+                <%= @volunteer_user.points %>
+            </p>
         </section>
-    
-        <section class = "section-right">
-        <h3>About Me</h3>
-        <p><%= @volunteer_user.about_me %></p>
-        <% if @volunteer_user.skills.any? %>
-            <p>Skills: <%= render @volunteer_user.skills %></p>
-        <% end %>
+
+        <section class="section-right">
+            <h3>About Me</h3>
+            <p>
+                <%= @volunteer_user.about_me %>
+            </p>
+            <% if @volunteer_user.skills.any? %>
+                <p>Skills:
+                    <%= render @volunteer_user.skills %>
+                </p>
+                <% end %>
         </section>
-    
+
     </section>
 </div>
 
-<div class = "VolunteerScore">
-    <section class = "container-section">
-    
-        <section class = "section-left">
-        <h3>Scorecard</h3>
-        <p>Skill Proficiency: <%= @volunteer_user.user_scorecard.skill_proficiency %></p>
-        <p>Attitude: <%= @volunteer_user.user_scorecard.attitude %></p>
-        <p>Enthusiasm: <%= @volunteer_user.user_scorecard.enthusiasm %></p>
-        <p>Reliability: <%= @volunteer_user.user_scorecard.reliability %></p>
+<div class="VolunteerScore">
+    <section class="container-section">
+
+        <section class="section-left">
+            <h3>Scorecard</h3>
+            <p>Skill Proficiency:
+                <%= @volunteer_user.user_scorecard.skill_proficiency %>
+            </p>
+            <p>Attitude:
+                <%= @volunteer_user.user_scorecard.attitude %>
+            </p>
+            <p>Enthusiasm:
+                <%= @volunteer_user.user_scorecard.enthusiasm %>
+            </p>
+            <p>Reliability:
+                <%= @volunteer_user.user_scorecard.reliability %>
+            </p>
         </section>
-    
-        <section class = "section-right">
-        <h3>Availability</h3>
-        
-        <P><%= link_to "Edit availability", newavailability_path %></P>
+
+        <section class="section-right">
+            <h3>Availability</h3>
+
+            <P>
+                <%= link_to "Edit availability", newavailability_path %>
+            </P>
         </section>
-    
+
     </section>
 </div>
 
