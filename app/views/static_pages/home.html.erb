@@ -3,6 +3,8 @@
         Welcome to Voluntr.io
     </h1>
 </center>
+
+<section class = "container-section">
 <p>
     <%= link_to "Looking for volunteers? Sign up here.", reqsignup_path %>
 </p>
@@ -16,3 +18,4 @@ Some Recent Requests:
     <%= i.title %> -> <%= i.description.truncate(25, omission: "...") %> <%= link_to "<click me!>", i %>
 </div>
 <% end %>
+</section>
