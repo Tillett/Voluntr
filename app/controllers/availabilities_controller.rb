@@ -9,7 +9,7 @@ class AvailabilitiesController < ApplicationController
     @availability.volunteer_user_id = session[:volunteer_user_id]
     if @availability.save
       flash[:success] = "Availability updated"
-      redirect_to @availability
+      redirect_to current_volunteer_user
     else
       flash.now[:danger] = 'Unsuccessful'
       render 'new'

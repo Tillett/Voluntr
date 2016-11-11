@@ -4,13 +4,36 @@ class UserScorecardsController < ApplicationController
     end
     
     def create
-        @user_scorecard = UserScorecard.new(user_scorecard_params)
-        
-        ##call the review method in volunteer_users
-        reviewee = VolunteerUser.find(@user_scorecard.volunteer_user_id)
-        reviewee.review(@user_scorecard.skill_proficiency,
-            @user_scorecard.attitude, @user_scorecard.enthusiasm,
-            @user_scorecard.reliability)
+    end
+    
+    def edit
+        @user_scorecard = UserScorecard.find_by(volunteer_user_id: params[:user_scorecard][:volunteer_user_id])
+    end
+    
+    def update
+        @user_scorecard = UserScorecard.find_by(volunteer_user_id: params[:user_scorecard][:volunteer_user_id])
+        @vol_user = VolunteerUser.find_by(id: params[:user_scorecard][:volunteer_user_id])
+        @old_reviews = 0
+        @old_review_count = @vol_user.rev_count.to_f
+        @new_skill_prof = params[:user_scorecard][:skill_proficiency].to_f
+        @skill_prof = ((@new_skill_prof.to_f + (@user_scorecard.skill_proficiency.to_f * @old_review_count.to_f)) / ((@old_review_count + 1.0).to_f))
+        @new_attit = params[:user_scorecard][:attitude].to_f
+        @attit = ((@new_attit + (@user_scorecard.attitude * @old_review_count)) / (@old_review_count + 1))
+        @new_enth = params[:user_scorecard][:enthusiasm].to_f
+        @enth = ((@new_enth + (@user_scorecard.enthusiasm * @old_review_count)) / (@old_review_count + 1))
+        @new_reliab = params[:user_scorecard][:reliability].to_f
+        @reliab = ((@new_reliab + (@user_scorecard.reliability * @old_review_count)) / (@old_review_count + 1))
+        @user_scorecard.update_attribute(:skill_proficiency, @skill_prof)
+        @user_scorecard.update_attribute(:attitude, @attit)
+        @user_scorecard.update_attribute(:enthusiasm, @enth)
+        @user_scorecard.update_attribute(:reliability, @reliab)
+        redirect_to current_volunteer_user
+        @review_count = 1.0 + @vol_user.rev_count.to_f
+        @vol_user.update_attribute(:rev_count, @review_count)
+    end
+    
+    def show
+        @user_scorecard = UserScorecard.find(params[:id])
     end
     
     private

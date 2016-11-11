@@ -1,7 +1,7 @@
 <div class = "ReviewVolunteer">
     <h1>Test Review Page</h1>
     <p>
-        <%= form_for UserScorecard.new do |f| %>
+        <%= form_for UserScorecard.find_by(volunteer_user_id: '5') do |f| %>
             <%= f.label :volunteer_user_id, "User Number" %>
             <%= f.text_field :volunteer_user_id %>
             
