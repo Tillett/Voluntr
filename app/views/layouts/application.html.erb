@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Voluntr</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>Voluntr</title>
+  <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= render 'layouts/header' %>
+<body>
+  <%= render 'layouts/header' %>
     <div class="container-body">
       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+        <% end %>
+          <%= yield %>
     </div>
-  </body>
-  
-  <%= render 'layouts/footer' %>
-  
+</body>
+
+<%= render 'layouts/footer' %>
+
   <%= debug(params) if Rails.env.development? %>
+
 </html>

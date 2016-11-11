@@ -1,38 +1,40 @@
 <h1>Volunteer Sign Up</h1>
-<p1><%= link_to "Already have an account? Sign in here", vollogin_path %></p1>
+<p1>
+  <%= link_to "Already have an account? Sign in here", vollogin_path %>
+</p1>
 <p>
   <%= form_for(@volunteer_user) do |f| %>
     <%= render 'shared/vol_error_messages' %>
-  
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
-    
-    <%= f.label :display_name, "Display Name" %>
-    <%= f.text_field :display_name, class: 'form-control' %>
-    
-    <%= f.label :zip_code, "Zip Code" %>
-    <%= f.text_field :zip_code, class: 'form-control' %>
-    
-    <%= f.label :about_me, "About Me" %>
-    <%= f.text_area :about_me, class: 'form-control' %>
-    
-    <section class = "container-section">
-    <h3>Skills: </h3>
-    <%= f.collection_check_boxes :skill_ids, Skill.order(:title), :id, :title,
+
+      <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
+
+          <%= f.label :display_name, "Display Name" %>
+            <%= f.text_field :display_name, class: 'form-control' %>
+
+              <%= f.label :zip_code, "Zip Code" %>
+                <%= f.text_field :zip_code, class: 'form-control' %>
+
+                  <%= f.label :about_me, "About Me" %>
+                    <%= f.text_area :about_me, class: 'form-control' %>
+
+                      <section class="container-section">
+                        <h3>Skills: </h3>
+                        <%= f.collection_check_boxes :skill_ids, Skill.order(:title), :id, :title,
     {class: "checkbox_container"}, 
     { multiple: true, class: "chosen-select" } %>
-    </section>
-    
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-    
-    <%= f.label :password_confirmation, "Confirm" %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
-    
-    <%= f.label :no_search, "Hide me from user searches" %>
-    <%= f.check_box :no_search %>
-    
-    <%= f.submit "Create account" %>
-  
-  <% end %>
+                      </section>
+
+                      <%= f.label :password %>
+                        <%= f.password_field :password, class: 'form-control' %>
+
+                          <%= f.label :password_confirmation, "Confirm" %>
+                            <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+                              <%= f.label :no_search, "Hide me from user searches" %>
+                                <%= f.check_box :no_search %>
+
+                                  <%= f.submit "Create account" %>
+
+                                    <% end %>
 </p>

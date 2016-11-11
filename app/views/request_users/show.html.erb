@@ -47,13 +47,17 @@
 
         <section class="section-right">
             <h3>Recent Events</h3>
-            <p>Placeholder</p>
-            <!--<div class="notification">-->
 
-            <!--    <%# @request_user.request_posts.each do |request_post| %>-->
-            <!--        <#%= request_post.title %>-->
-            <!--            <#% end %>-->
-            <!--</div>-->
+                <% @request_user.request_posts.each do |request_post| %>
+                    
+                    <div class="notification">
+                    <h4><%= request_post.title %></h4>
+                     <p><br /></p>
+                     <%= request_post.description.truncate(120, omission: "...") %>
+                     <p><br /></p>
+                     <%= link_to "<click me!>", request_post %>
+                     </div>
+                        <% end %>
         </section>
 
     </section>
