@@ -6,7 +6,7 @@
   <%= f.text_field :description %>
   
   <%= f.label :avail %>
-  <%= f.date_field :avail %>
+  <%= f.time_field :avail %>
   
   <%= hidden_field_tag(:id, params[:id]) %>
   <%= f.submit "Post" %>

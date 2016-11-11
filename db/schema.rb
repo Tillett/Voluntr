@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 20161108035607) do
   end
 
   create_table "request_post_jobs", force: :cascade do |t|
-    t.integer  "request_post_id"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "avail"
-    t.integer  "user_id"
+    t.integer   "request_post_id"
+    t.string    "title"
+    t.text      "description"
+    t.time  "avail"
+    t.integer   "user_id"
     t.index ["request_post_id"], name: "index_request_post_jobs_on_request_post_id"
   end
 
