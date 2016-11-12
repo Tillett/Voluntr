@@ -23,7 +23,12 @@ Rails.application.routes.draw do
   resources :request_post_updates, only: [:create, :destroy]
   get '/notifications', to: 'notifications#show'
   resources :availabilities
-  resources :request_post_jobs, only: [:create, :destroy]
+  resources :request_post_jobs do
+    member do
+      post 'user_sig_interest'
+      post 'assoc_with_user'
+    end
+  end
   get '/reqpostcreation', to: 'request_posts#new'
   get '/volusers', to: 'volunteer_users#index'
   get '/requsers', to: 'request_users#index'
