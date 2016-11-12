@@ -12,19 +12,30 @@ Rails.application.routes.draw do
   get '/debugreview', to: 'static_pages#debugreview'
   get '/debugrequestreview', to: 'static_pages#debugrequestreview'
   get '/reqsignup', to: 'request_users#new'
-  resources :request_users
+  resources :request_users do
+    member do
+      get :followers
+    end
+  end
   resources :user_scorecards
   resources :volunteer_users do
     member do
       post 'signal_interest'
+      get :following
     end
   end
+  resources :relationships,       only: [:create, :destroy]
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
   resources :request_post_updates, only: [:create, :destroy]
   get '/notifications', to: 'notifications#show'
   resources :availabilities
-  resources :request_post_jobs, only: [:create, :destroy]
+  resources :request_post_jobs do
+    member do
+      post 'user_sig_interest'
+      post 'assoc_with_user'
+    end
+  end
   get '/reqpostcreation', to: 'request_posts#new'
   get '/volusers', to: 'volunteer_users#index'
   get '/requsers', to: 'request_users#index'

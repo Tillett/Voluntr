@@ -1,0 +1,20 @@
+<div class="ReviewRequest">
+    <h1>Test Request Review Page</h1>
+    <p>
+        <%= form_for RequestUserScorecard.find_by(request_user_id: '2') do |f| %>
+            <%= f.label :request_user_id, "User Number" %>
+                <%= f.text_field :request_user_id %>
+
+                    <%= f.label :leadership, "Leadership" %>
+                        <%= f.text_field :leadership %>
+
+                            <%= f.label :treatment, "Treatment" %>
+                                <%= f.text_field :treatment %>
+
+                                    <%= f.label :committedness, "Committedness" %>
+                                        <%= f.text_field :committedness %>
+
+                                                    <%= f.submit "Confirm Review" %>
+                                                        <% end %>
+    </p>
+</div>
