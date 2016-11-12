@@ -22,7 +22,7 @@ class UserScorecardsController < ApplicationController
         @new_enth = params[:user_scorecard][:enthusiasm].to_f
         @enth = ((@new_enth + (@user_scorecard.enthusiasm * @old_review_count)) / (@old_review_count + 1))
         @new_reliab = params[:user_scorecard][:reliability].to_f
-        @reliab = ((@new_reliab + (@user_scorecard.reliability * @old_review_count)) / (@old_review_count + 1))
+        @reliab = ((@new_reliab + @user_scorecard.reliability) / 2)
         @user_scorecard.update_attribute(:skill_proficiency, @skill_prof)
         @user_scorecard.update_attribute(:attitude, @attit)
         @user_scorecard.update_attribute(:enthusiasm, @enth)

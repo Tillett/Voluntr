@@ -1,4 +1,4 @@
-<div class = "notification-update">
+<section class = "container-section">
      <div class = "notification-title-update">
          <%= request_post_update.title + ":" %>
      </div>
@@ -6,4 +6,4 @@
          <% if(requester_has_post(request_post_update.request_post_id)) %>
               <%= link_to "<delete>", request_post_update, method: :delete %>
          <% end %>
-</div>
+</section>
