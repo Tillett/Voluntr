@@ -26,7 +26,8 @@
             <h3>About Me</h3>
             <p>
                 <%= @request_user.about_me %>
-                <%= current_request_user.followers.count %>
+                <p><br /></p>
+                <%= @request_user.followers.count %>
             </p>
             <% if @request_user.website_address.empty? %>
                 <p>No Website</p>
