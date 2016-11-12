@@ -3,6 +3,7 @@
     <section class="container-section">
 
         <section class="section-left">
+
             <h1>
                 <%= @request_user.display_name %>
             </h1>
@@ -23,15 +24,30 @@
         </section>
 
         <section class="section-right">
-            <h3>About Me</h3>
+
+
             <p>
-                <%= @request_user.about_me %>
+                <%= render 'shared/req_stats' %>
             </p>
-            <% if @request_user.website_address.empty? %>
-                <p>No Website</p>
-                <% else %>
-                    <%= link_to "Website", @request_user.website_address %>
-                        <% end %>
+
+            <% if volunteer_user_logged_in? %>
+                <p>
+                    <%= render 'follow_form' %>
+                </p>
+                <% end %>
+
+                    <h3>About Me</h3>
+                    
+                    <p>
+                        <%= @request_user.about_me %>
+                            <p><br /></p>
+                    </p>
+                    
+                    <% if @request_user.website_address.empty? %>
+                        <p>No Website</p>
+                        <% else %>
+                            <%= link_to "Website", @request_user.website_address %>
+                                <% end %>
         </section>
 
     </section>
@@ -48,16 +64,18 @@
         <section class="section-right">
             <h3>Recent Events</h3>
 
-                <% @request_user.request_posts.each do |request_post| %>
-                    
-                    <div class="notification">
-                    <h4><%= request_post.title %></h4>
-                     <p><br /></p>
-                     <%= request_post.description.truncate(120, omission: "...") %>
-                     <p><br /></p>
-                     <%= link_to "<click me!>", request_post %>
-                     </div>
-                        <% end %>
+            <% @request_user.request_posts.each do |request_post| %>
+
+                <div class="notification">
+                    <h4>
+                        <%= request_post.title %>
+                    </h4>
+                    <p><br /></p>
+                    <%= request_post.description.truncate(120, omission: "...") %>
+                        <p><br /></p>
+                        <%= link_to "<click me!>", request_post %>
+                </div>
+                <% end %>
         </section>
 
     </section>
