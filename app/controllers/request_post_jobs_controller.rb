@@ -36,7 +36,14 @@ class RequestPostJobsController < ApplicationController
   def assoc_with_user()
     @request_post_job = RequestPostJob.find(params[:id])
     if(requester_has_post(@request_post_job.request_post_id))
-        @request_post_job.update_attribute(:user_id, params[:vid])
+        if params[:vid] != "nil"
+          @request_post_job.update_attribute(:user_id, params[:vid])
+        else
+          @request_post_job.update_attribute(:user_id, nil)
+        end
+        redirect_to "/request_posts/#{@request_post_job.request_post_id}"
+    elsif (@request_post_job.user_id != nil && users_id_is(@request_post_job.user_id))
+        @request_post_job.update_attribute(:user_id, nil)
         redirect_to "/request_posts/#{@request_post_job.request_post_id}"
     end
   end
