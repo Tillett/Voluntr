@@ -10,6 +10,11 @@ class RequestUsersController < ApplicationController
   
   def create 
     @request_user = RequestUser.new(request_user_params)
+    ##Initialize Scorecard
+    @request_user.request_user_scorecard = RequestUserScorecard.new
+    @request_user.build_request_user_scorecard( volunteer_user_id: @volunteer_user_id, 
+                leadership: 0,treatment: 0,committedness: 0)
+    @request_user.rev_count = 0
     if @request_user.save
       request_log_in @request_user
       flash[:success] = "Log in successful"

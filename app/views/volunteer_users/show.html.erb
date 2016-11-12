@@ -63,6 +63,51 @@
         <section class="section-right">
             <h3>Availability</h3>
 
+    <!-- AVAILABILITY TABLE MOCK UP -->
+            <body>
+                <table border="1">
+                    <tr>
+                        <th> Monday </th>
+                        <td>
+                            <%= @volunteer_user.availability.mon_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.mon_en %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tuesday</th>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th>Wednesday</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Thursday</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Friday</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Saturday</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Sunday</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </body>
+
             <P>
                 <%= link_to "Edit availability", newavailability_path %>
             </P>
@@ -70,6 +115,3 @@
 
     </section>
 </div>
-
-
-

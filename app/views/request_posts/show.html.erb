@@ -1,3 +1,4 @@
+<section class = "container-section">
 <div class="updates">
   <div align="center">
     <% b = requester_has_post(@request_post.id) %>
@@ -57,3 +58,4 @@
                 <%= if i.user_id != nil then VolunteerUser.find(i.user_id).display_name end %>
           </li>
           <% end %>
+</section>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/faq',   to: 'static_pages#faq'
   get '/debugreview', to: 'static_pages#debugreview'
+  get '/debugrequestreview', to: 'static_pages#debugrequestreview'
   get '/reqsignup', to: 'request_users#new'
   resources :request_users
   resources :user_scorecards
