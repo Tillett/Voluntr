@@ -24,30 +24,27 @@
         </section>
 
         <section class="section-right">
-
-
-            <p>
-                <%= render 'shared/req_stats' %>
-            </p>
-
-            <% if volunteer_user_logged_in? %>
+            <div class="topcorner">
                 <p>
-                    <%= render 'follow_form' %>
+                    <%= render 'shared/req_stats' %>
                 </p>
-                <% end %>
-
-                    <h3>About Me</h3>
-
+                <% if volunteer_user_logged_in? %>
                     <p>
-                        <%= @request_user.about_me %>
-                            <p><br /></p>
+                        <%= render 'follow_form' %>
                     </p>
+                    <% end %>
+            </div>
 
-                    <% if @request_user.website_address.empty? %>
-                        <p>No Website</p>
-                        <% else %>
-                            <%= link_to "Website", @request_user.website_address %>
-                                <% end %>
+            <h3>About Me</h3>
+            <p>
+                <%= @request_user.about_me %>
+                    <p><br /></p>
+            </p>
+            <% if @request_user.website_address.empty? %>
+                <p>No Website</p>
+                <% else %>
+                    <%= link_to "Website", @request_user.website_address %>
+                        <% end %>
         </section>
 
     </section>

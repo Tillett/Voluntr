@@ -27,17 +27,28 @@
         </section>
 
         <section class="section-right">
-            <h3>About Me</h3>
-            <p>
-                <%= @volunteer_user.about_me %>
-            </p>
-            <% if @volunteer_user.skills.any? %>
-                <p>Skills:
-                    <%= render @volunteer_user.skills %>
-                </p>
-                <% end %>
-        </section>
 
+            <section class="section-left">
+                <h3>About Me</h3>
+                <p>
+                    <%= @volunteer_user.about_me %>
+                </p>
+                <% if @volunteer_user.skills.any? %>
+                    <p>Skills:
+                        <%= render @volunteer_user.skills %>
+                    </p>
+                    <% end %>
+            </section>
+
+            <section class="section-right">
+                <div class="topcorner">
+                    <p>
+                        <%= render 'shared/vol_stats' %>
+                    </p>
+                </div>
+            </section>
+
+        </section>
     </section>
 </div>
 
@@ -46,21 +57,19 @@
 
         <section class="section-left">
 
-            <%= render 'shared/vol_stats' %>
-
-                <h3>Scorecard</h3>
-                <p>Skill Proficiency:
-                    <%= @volunteer_user.user_scorecard.skill_proficiency %>
-                </p>
-                <p>Attitude:
-                    <%= @volunteer_user.user_scorecard.attitude %>
-                </p>
-                <p>Enthusiasm:
-                    <%= @volunteer_user.user_scorecard.enthusiasm %>
-                </p>
-                <p>Reliability:
-                    <%= @volunteer_user.user_scorecard.reliability %>
-                </p>
+            <h3>Scorecard</h3>
+            <p>Skill Proficiency:
+                <%= @volunteer_user.user_scorecard.skill_proficiency %>
+            </p>
+            <p>Attitude:
+                <%= @volunteer_user.user_scorecard.attitude %>
+            </p>
+            <p>Enthusiasm:
+                <%= @volunteer_user.user_scorecard.enthusiasm %>
+            </p>
+            <p>Reliability:
+                <%= @volunteer_user.user_scorecard.reliability %>
+            </p>
         </section>
 
         <section class="section-right">
@@ -72,17 +81,13 @@
                 <table border="1">
                     <tr>
                         <th> Monday </th>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Tuesday</th>
-                        <td>1</td>
-                        <td>1</td>
+                        <td>00:00XX</td>
+                        <td>00:00XX</td>
                     </tr>
                     <tr>
                         <th>Wednesday</th>
@@ -111,12 +116,9 @@
                     </tr>
                 </table>
             </body>
-            <P>
+            <p>
                 <%= link_to "Edit availability", newavailability_path %>
-                    <p><br /></p>
-                    <%= @volunteer_user.following.ids.count %>
-
-            </P>
+            </p>
         </section>
 
     </section>
