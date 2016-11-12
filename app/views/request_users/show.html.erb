@@ -37,12 +37,12 @@
                 <% end %>
 
                     <h3>About Me</h3>
-                    
+
                     <p>
                         <%= @request_user.about_me %>
                             <p><br /></p>
                     </p>
-                    
+
                     <% if @request_user.website_address.empty? %>
                         <p>No Website</p>
                         <% else %>

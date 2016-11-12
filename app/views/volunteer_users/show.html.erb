@@ -45,38 +45,38 @@
     <section class="container-section">
 
         <section class="section-left">
-            
+
             <%= render 'shared/vol_stats' %>
 
-            <h3>Scorecard</h3>
-            <p>Skill Proficiency:
-                <%= @volunteer_user.user_scorecard.skill_proficiency %>
-            </p>
-            <p>Attitude:
-                <%= @volunteer_user.user_scorecard.attitude %>
-            </p>
-            <p>Enthusiasm:
-                <%= @volunteer_user.user_scorecard.enthusiasm %>
-            </p>
-            <p>Reliability:
-                <%= @volunteer_user.user_scorecard.reliability %>
-            </p>
+                <h3>Scorecard</h3>
+                <p>Skill Proficiency:
+                    <%= @volunteer_user.user_scorecard.skill_proficiency %>
+                </p>
+                <p>Attitude:
+                    <%= @volunteer_user.user_scorecard.attitude %>
+                </p>
+                <p>Enthusiasm:
+                    <%= @volunteer_user.user_scorecard.enthusiasm %>
+                </p>
+                <p>Reliability:
+                    <%= @volunteer_user.user_scorecard.reliability %>
+                </p>
         </section>
 
         <section class="section-right">
             <h3>Availability</h3>
 
-    <!-- AVAILABILITY TABLE MOCK UP -->
+            <!-- AVAILABILITY TABLE MOCK UP -->
 
             <body>
                 <table border="1">
                     <tr>
                         <th> Monday </th>
                         <td>
-                            
+
                         </td>
                         <td>
-                            
+
                         </td>
                     </tr>
                     <tr>
@@ -113,8 +113,8 @@
             </body>
             <P>
                 <%= link_to "Edit availability", newavailability_path %>
-                <p><br /></p>
-                <%= @volunteer_user.following.ids.count %>
+                    <p><br /></p>
+                    <%= @volunteer_user.following.ids.count %>
 
             </P>
         </section>
