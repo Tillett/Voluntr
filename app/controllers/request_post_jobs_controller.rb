@@ -35,29 +35,26 @@ class RequestPostJobsController < ApplicationController
   
   def assoc_with_user()
     @request_post_job = RequestPostJob.find(params[:id])
-    vol = VolunteerUser.find(params[:vid])
     if(requester_has_post(@request_post_job.request_post_id))
-      if(vol != nil)
-        @request_post_job.user_id = vol.id
-      else
-        @request_post_job.user_id = nil
-      end
+        @request_post_job.update_attribute(:user_id, params[:vid])
+        redirect_to "/request_posts/#{@request_post_job.request_post_id}"
     end
   end
   
   def user_sig_interest()
     @request_post_job = RequestPostJob.find(params[:id])
     vol = VolunteerUser.find(params[:vid])
-    req = RequestUser.find(@request_post_job.requester_user_id)
-    if(user_id_is(vol.id))
+    req_post = RequestPost.find(@request_post_job.request_post_id)
+    req = RequestUser.find(req_post.request_user_id)
+    if(users_id_is(vol.id))
       req.notifications.create(title: "A user has signalled interest in a job!",
       description: "<%= link_to \"<#{vol.display_name}>\", \"volunteer_users/#{vol.id}\" %>"\
                    " is interested in your job, #{@request_post_job.title.truncate(25)} --"\
                    " #{@request_post_job.description.truncate(25)}. "\
                    " You may <%= link_to \"<approve them>\", {:controller => "\
-                   ":request_post_job, :action => :assoc_with_user, "\
-                   "id: #{params[:id]}, vid: #{vol.id}}, method: :post %> now")
-      redirect_to @request_post_job
+                   ":request_post_jobs, :action => :assoc_with_user, "\
+                   "id: \"#{params[:id]}\", vid: \"#{vol.id}\"}, method: :post %> now")
+      redirect_to req_post
     end
   end
   
