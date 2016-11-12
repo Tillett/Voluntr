@@ -19,19 +19,6 @@ class RequestUser < ApplicationRecord
   
   has_many :followers, through: :passive_relationships, source: :follower
   
-  def follow(other)
-    active_relationships.create(followed_id: other.id)
-  end
-  
-  def unfollow(other)
-    active_relationships.find_by(followed_id: other.id).destroy
-  end
-  
-  def following?(other)
-    following.include?(other)
-  end
-  
-  
   def RequestUser.new_token
     SecureRandom.urlsafe_base64
   end
@@ -65,6 +52,7 @@ class RequestUser < ApplicationRecord
       all
     end
   end    
+    
     
     
 end

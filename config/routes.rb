@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :following
     end
   end
+  resources :relationships,       only: [:create, :destroy]
   resources :notifications, only: [:show, :destroy]
   resources :request_posts
   resources :request_post_updates, only: [:create, :destroy]

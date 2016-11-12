@@ -3,6 +3,7 @@
     <section class="container-section">
 
         <section class="section-left">
+            
             <h1>
                 <%= @request_user.display_name %>
             </h1>
@@ -23,11 +24,14 @@
         </section>
 
         <section class="section-right">
+            
+
+            <%= render 'shared/req_stats' %>
+
             <h3>About Me</h3>
             <p>
                 <%= @request_user.about_me %>
                 <p><br /></p>
-                <%= @request_user.followers.count %>
             </p>
             <% if @request_user.website_address.empty? %>
                 <p>No Website</p>
