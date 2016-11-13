@@ -28,6 +28,13 @@ class VolunteerUser < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
   
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :volunteer_user_id"
+    RequestPost.where("volunteer_user_id IN (#{following_ids})
+                     OR volunteer_user_id = :volunteer_user_id", volunteer_user_id: id)
+  end
+
   def remember
     self.remember_token = VolunteerUser.new_token
     update_attribute(:remember_digest, VolunteerUser.digest(remember_token))

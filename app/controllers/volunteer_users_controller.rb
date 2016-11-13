@@ -64,6 +64,9 @@ class VolunteerUsersController < ApplicationController
     end
   end
   
+  def following
+    @volunteer_user = VolunteerUser.find(current_volunteer_user)
+  end
   
   private
   
