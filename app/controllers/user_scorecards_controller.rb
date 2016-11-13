@@ -6,9 +6,6 @@ class UserScorecardsController < ApplicationController
     def create
     end
     
-    def edit
-    end
-    
     def update
         @user_scorecard = UserScorecard.find_by(volunteer_user_id: params[:user_scorecard][:volunteer_user_id])
         @vol_user = VolunteerUser.find_by(id: params[:user_scorecard][:volunteer_user_id])
@@ -26,7 +23,7 @@ class UserScorecardsController < ApplicationController
         @user_scorecard.update_attribute(:attitude, @attit)
         @user_scorecard.update_attribute(:enthusiasm, @enth)
         @user_scorecard.update_attribute(:reliability, @reliab)
-        redirect_to current_volunteer_user
+        redirect_to current_request_user
         @review_count = 1.0 + @vol_user.rev_count.to_f
         @vol_user.update_attribute(:rev_count, @review_count)
         @points = @vol_user.points.to_f

@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get '/volusers', to: 'volunteer_users#index'
   get '/requsers', to: 'request_users#index'
   get '/reqposts', to: 'request_posts#index'
-  get '/volreview', to: 'user_scorecards#edit'
+  get '/volreview', to: 'volunteer_users#score'
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'
   delete '/reqlogout', to: 'request_sessions#destroy'
