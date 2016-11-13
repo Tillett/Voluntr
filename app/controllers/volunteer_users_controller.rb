@@ -23,7 +23,8 @@ class VolunteerUsersController < ApplicationController
     if @volunteer_user.save
       volunteer_log_in @volunteer_user
       flash[:success] = "Log in successful"
-      redirect_to @volunteer_user
+      @scorecard_id = @volunteer_user.user_scorecard.id
+      redirect_to newavailability_path
     else
       flash.now[:danger] = "Please check the fields carefully"
       render 'new'

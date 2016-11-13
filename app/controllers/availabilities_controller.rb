@@ -4,7 +4,6 @@ class AvailabilitiesController < ApplicationController
   end
   
   def create
-    Availability.where(volunteer_user_id: session[:volunteer_user_id]).delete_all
     @availability = Availability.new(availability_params)
     @availability.volunteer_user_id = session[:volunteer_user_id]
     if @availability.save
@@ -18,6 +17,20 @@ class AvailabilitiesController < ApplicationController
   
   def show
     @availability = Availability.find(params[:id])
+  end
+  
+  def edit
+    @availability = Availability.find_by(volunteer_user_id: params[:id])
+  end
+  
+  def update
+    @availability = Availability.find_by(params[:id])
+    if @availability.update_attributes(availability_params)
+      @availability = availability_params
+      redirect_to current_volunteer_user
+    else
+      render 'edit'
+    end
   end
   
   def destroy

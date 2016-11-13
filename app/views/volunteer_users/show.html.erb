@@ -81,43 +81,43 @@
                 <table border="1">
                     <tr>
                         <th> Monday </th>
-                        <td></td>
-                        <td></td>
+                        <td><%= @volunteer_user.availability.mon_st %></td>
+                        <td><%= @volunteer_user.availability.mon_en %></td>
                     </tr>
                     <tr>
                         <th>Tuesday</th>
-                        <td>00:00XX</td>
-                        <td>00:00XX</td>
+                        <td><%= @volunteer_user.availability.tues_st %></td>
+                        <td><%= @volunteer_user.availability.tues_en %></td>
                     </tr>
                     <tr>
                         <th>Wednesday</th>
-                        <td></td>
-                        <td></td>
+                        <td><%= @volunteer_user.availability.wed_st %></td>
+                        <td><%= @volunteer_user.availability.wed_en %></td>
                     </tr>
                     <tr>
                         <th>Thursday</th>
-                        <td></td>
-                        <td></td>
+                        <td><%= @volunteer_user.availability.thur_st %></td>
+                        <td><%= @volunteer_user.availability.thur_en %></td>
                     </tr>
                     <tr>
                         <th>Friday</th>
-                        <td></td>
-                        <td></td>
+                        <td><%= @volunteer_user.availability.fri_st %></td>
+                        <td><%= @volunteer_user.availability.fri_en %></td>
                     </tr>
                     <tr>
                         <th>Saturday</th>
-                        <td></td>
-                        <td></td>
+                        <td><%= @volunteer_user.availability.sat_st %></td>
+                        <td><%= @volunteer_user.availability.sat_en %></td>
                     </tr>
                     <tr>
                         <th>Sunday</th>
-                        <td></td>
-                        <td></td>
+                        <td><%= @volunteer_user.availability.sun_st %></td>
+                        <td><%= @volunteer_user.availability.sun_en %></td>
                     </tr>
                 </table>
             </body>
             <p>
-                <%= link_to "Edit availability", newavailability_path %>
+                <%= link_to "Edit availability", edit_availability_path %>
             </p>
         </section>
 
