@@ -2,7 +2,7 @@
     <h1>Volunteer Review</h1>
     <p>
         <%= form_for(@user_scorecard) do |f| %>
-            <%= hidden_field_tag(:volunteer_user_id, params[:volunteer_user_id]) %>
+            <%= f.hidden_field "volunteer_user_id", :value => @volunteer_user.id %>
             
             <%= f.label :skill_proficiency, "Skill Proficiency" %>
             <%= f.text_field :skill_proficiency %>
