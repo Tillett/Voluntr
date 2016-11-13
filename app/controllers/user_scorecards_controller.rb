@@ -30,6 +30,11 @@ class UserScorecardsController < ApplicationController
         redirect_to current_volunteer_user
         @review_count = 1.0 + @vol_user.rev_count.to_f
         @vol_user.update_attribute(:rev_count, @review_count)
+        @points = @vol_user.points.to_f
+        @add_points = 5.0 * (@new_skill_prof + @new_attit + @new_reliab + @new_enth)
+        @points = @points + @add_points
+        @vol_user.update_attribute(:points, @points)
+        
     end
     
     def show
