@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111202829) do
+ActiveRecord::Schema.define(version: 20161113002227) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
@@ -90,14 +90,15 @@ ActiveRecord::Schema.define(version: 20161111202829) do
   end
 
   create_table "request_users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.string "display_name"
-    t.string "tel_num"
-    t.string "fax_num"
-    t.string "website_address"
-    t.text   "about_me"
-    t.string "remember_digest"
+    t.string  "email"
+    t.string  "password_digest"
+    t.string  "display_name"
+    t.string  "tel_num"
+    t.string  "fax_num"
+    t.string  "website_address"
+    t.text    "about_me"
+    t.string  "remember_digest"
+    t.integer "rev_count"
     t.index ["email"], name: "index_request_users_on_email", unique: true
   end
 
