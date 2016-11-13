@@ -16,8 +16,9 @@ class RequestUser < ApplicationRecord
   has_one :request_user_scorecard
   has_many :notifications, :as => :user
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  
   has_many :followers, through: :passive_relationships, source: :follower
+  has_attached_file :logo, :styles => { :small => "150x150>" }
+  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
   
   def RequestUser.new_token
     SecureRandom.urlsafe_base64

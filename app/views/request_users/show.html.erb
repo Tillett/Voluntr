@@ -5,7 +5,9 @@
         <section class="section-left">
 
             <h1>
-                <%= @request_user.display_name %>
+                <%= image_tag @request_user.logo.url %>
+                    <p><br /></p>
+                    <%= @request_user.display_name %>
             </h1>
 
             <p>Email:

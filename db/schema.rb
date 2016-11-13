@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113002227) do
+ActiveRecord::Schema.define(version: 20161113043149) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
@@ -90,15 +90,19 @@ ActiveRecord::Schema.define(version: 20161113002227) do
   end
 
   create_table "request_users", force: :cascade do |t|
-    t.string  "email"
-    t.string  "password_digest"
-    t.string  "display_name"
-    t.string  "tel_num"
-    t.string  "fax_num"
-    t.string  "website_address"
-    t.text    "about_me"
-    t.string  "remember_digest"
-    t.integer "rev_count"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "display_name"
+    t.string   "tel_num"
+    t.string   "fax_num"
+    t.string   "website_address"
+    t.text     "about_me"
+    t.string   "remember_digest"
+    t.integer  "rev_count"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.index ["email"], name: "index_request_users_on_email", unique: true
   end
 
@@ -129,15 +133,19 @@ ActiveRecord::Schema.define(version: 20161113002227) do
   end
 
   create_table "volunteer_users", force: :cascade do |t|
-    t.string  "display_name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.text    "about_me"
-    t.string  "zip_code"
-    t.integer "points"
-    t.integer "rev_count"
-    t.boolean "no_search"
-    t.string  "remember_digest"
+    t.string   "display_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.text     "about_me"
+    t.string   "zip_code"
+    t.integer  "points"
+    t.integer  "rev_count"
+    t.boolean  "no_search"
+    t.string   "remember_digest"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_volunteer_users_on_email", unique: true
   end
 

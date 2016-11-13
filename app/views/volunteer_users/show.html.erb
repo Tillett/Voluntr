@@ -9,7 +9,9 @@
 
         <section class="section-left">
             <h1>
-                <%= @volunteer_user.display_name %>
+                <%= image_tag @volunteer_user.avatar.url %>
+                    <p><br /></p>
+                    <%= @volunteer_user.display_name %>
             </h1>
 
             <p>Email:
@@ -82,38 +84,66 @@
                 <table border="1">
                     <tr>
                         <th> Monday </th>
-                        <td><%= @volunteer_user.availability.mon_st %></td>
-                        <td><%= @volunteer_user.availability.mon_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.mon_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.mon_en %>
+                        </td>
                     </tr>
                     <tr>
                         <th>Tuesday</th>
-                        <td><%= @volunteer_user.availability.tues_st %></td>
-                        <td><%= @volunteer_user.availability.tues_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.tues_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.tues_en %>
+                        </td>
                     </tr>
                     <tr>
                         <th>Wednesday</th>
-                        <td><%= @volunteer_user.availability.wed_st %></td>
-                        <td><%= @volunteer_user.availability.wed_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.wed_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.wed_en %>
+                        </td>
                     </tr>
                     <tr>
                         <th>Thursday</th>
-                        <td><%= @volunteer_user.availability.thur_st %></td>
-                        <td><%= @volunteer_user.availability.thur_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.thur_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.thur_en %>
+                        </td>
                     </tr>
                     <tr>
                         <th>Friday</th>
-                        <td><%= @volunteer_user.availability.fri_st %></td>
-                        <td><%= @volunteer_user.availability.fri_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.fri_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.fri_en %>
+                        </td>
                     </tr>
                     <tr>
                         <th>Saturday</th>
-                        <td><%= @volunteer_user.availability.sat_st %></td>
-                        <td><%= @volunteer_user.availability.sat_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.sat_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.sat_en %>
+                        </td>
                     </tr>
                     <tr>
                         <th>Sunday</th>
-                        <td><%= @volunteer_user.availability.sun_st %></td>
-                        <td><%= @volunteer_user.availability.sun_en %></td>
+                        <td>
+                            <%= @volunteer_user.availability.sun_st %>
+                        </td>
+                        <td>
+                            <%= @volunteer_user.availability.sun_en %>
+                        </td>
                     </tr>
                 </table>
             </body>

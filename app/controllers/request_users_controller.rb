@@ -48,7 +48,7 @@ class RequestUsersController < ApplicationController
   private
     def request_user_params
       params.require(:request_user).permit(:email, :display_name, :tel_num,
-        :fax_num, :website_address, :about_me, :password, :password_confirmation)
+        :fax_num, :website_address, :about_me, :password, :password_confirmation, :logo)
     end
     
     

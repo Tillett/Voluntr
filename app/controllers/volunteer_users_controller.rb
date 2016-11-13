@@ -70,6 +70,6 @@ class VolunteerUsersController < ApplicationController
     def volunteer_user_params
       params.require(:volunteer_user).permit(:email, :display_name, :zip_code,
       :about_me, :points, :rev_count, :no_search, :password, 
-      :password_confirmation, skill_ids: [])
+      :password_confirmation, :avatar, skill_ids: [])
     end
 end
