@@ -9,7 +9,7 @@
             <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
         <% end %>
         <% if requester_has_post(request_post_job.request_post_id) %>
-            <%#= link_to "<Review Volunteer>", {:controller => :volunteer_user, :action => :score, :id => request_post_job.user_id} %>
+            <%= link_to "<Review Volunteer>", "/volreview", :user_scorecard => vol.user_scorecard, :volunteer_user => vol %>
         <% end %>
     <% end %>
     <% if requester_has_post(request_post_job.request_post_id) %>

@@ -7,7 +7,6 @@ class UserScorecardsController < ApplicationController
     end
     
     def edit
-        @user_scorecard = UserScorecard.find_by(volunteer_user_id: params[:user_scorecard][:volunteer_user_id])
     end
     
     def update
