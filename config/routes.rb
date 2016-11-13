@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :user_scorecards
+  resources :request_user_scorecards
   resources :volunteer_users do
     member do
       post 'signal_interest'
