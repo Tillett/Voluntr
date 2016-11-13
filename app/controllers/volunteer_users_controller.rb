@@ -64,6 +64,9 @@ class VolunteerUsersController < ApplicationController
     end
   end
   
+  def review
+    redirect_to @user_scorecard.review
+  end
   
   private
   

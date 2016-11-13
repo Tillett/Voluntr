@@ -1,9 +1,8 @@
 <div class = "ReviewVolunteer">
-    <h1>Test Review Page</h1>
+    <h1>Volunteer Review</h1>
     <p>
         <%= form_for(@user_scorecard) do |f| %>
-            <%= f.label :volunteer_user_id, "User Number" %>
-            <%= f.text_field :volunteer_user_id %>
+            <%= hidden_field_tag(:volunteer_user_id, params[:volunteer_user_id]) %>
             
             <%= f.label :skill_proficiency, "Skill Proficiency" %>
             <%= f.text_field :skill_proficiency %>

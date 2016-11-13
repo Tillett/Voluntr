@@ -8,6 +8,9 @@
         <% if users_id_is(request_post_job.user_id) %>
             <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
         <% end %>
+        <% if requester_has_post(request_post_job.request_post_id) %>
+            <%#= link_to "<Review Volunteer>", {:controller => :volunteer_user, :action => :review} %>
+        <% end %>
     <% end %>
     <% if requester_has_post(request_post_job.request_post_id) %>
         <%= link_to "<Dismiss User>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
