@@ -14,22 +14,23 @@ ActiveRecord::Schema.define(version: 20161113043149) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
-    t.integer  "mon_st"
-    t.integer  "mon_en"
-    t.integer  "tues_st"
-    t.integer  "tues_en"
-    t.integer  "wed_st"
-    t.integer  "wed_en"
-    t.integer  "thur_st"
-    t.integer  "thur_en"
-    t.integer  "fri_st"
-    t.integer  "fri_en"
-    t.integer  "sat_st"
-    t.integer  "sat_en"
-    t.integer  "sun_st"
-    t.integer  "sun_en"
+    t.time     "mon_st"
+    t.time     "mon_en"
+    t.time     "tues_st"
+    t.time     "tues_en"
+    t.time     "wed_st"
+    t.time     "wed_en"
+    t.time     "thur_st"
+    t.time     "thur_en"
+    t.time     "fri_st"
+    t.time     "fri_en"
+    t.time     "sat_st"
+    t.time     "sat_en"
+    t.time     "sun_st"
+    t.time     "sun_en"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["volunteer_user_id"], name: "index_availabilities_on_volunteer_user_id", unique: true
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -56,8 +57,10 @@ ActiveRecord::Schema.define(version: 20161113043149) do
     t.integer  "request_post_id"
     t.string   "title"
     t.text     "description"
-    t.datetime "avail"
+    t.time     "avail"
     t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["request_post_id"], name: "index_request_post_jobs_on_request_post_id"
   end
 
@@ -114,10 +117,10 @@ ActiveRecord::Schema.define(version: 20161113043149) do
 
   create_table "user_scorecards", force: :cascade do |t|
     t.integer  "volunteer_user_id"
-    t.integer  "skill_proficiency"
-    t.integer  "attitude"
-    t.integer  "enthusiasm"
-    t.integer  "reliability"
+    t.float    "skill_proficiency"
+    t.float    "attitude"
+    t.float    "enthusiasm"
+    t.float    "reliability"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

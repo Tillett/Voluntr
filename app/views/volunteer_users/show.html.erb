@@ -8,16 +8,14 @@
     <%= image_tag @volunteer_user.avatar.url %>
         <%= @volunteer_user.display_name %>
 </h1>
+<h4>
+    <%= render 'shared/vol_stats' %>
+</h4>
 
 <div class="VolunteerInfo">
     <section class="container-section">
 
         <section class="section-left">
-
-
-            <p>
-                <%= render 'shared/vol_stats' %>
-            </p>
 
             <p>Email:
                 <%= @volunteer_user.email %>
