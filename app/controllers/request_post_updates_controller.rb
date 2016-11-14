@@ -4,24 +4,22 @@ class RequestPostUpdatesController < ApplicationController
     end
     
     def create
-        ##verifies correct user for this request_post_id!!!
         id = params[:request_post_update][:request_post_id]
         if (requester_has_post(id))
             @request_post_update = 
                             RequestPostUpdate.new(request_post_update_params)
             @request_post_update.request_post_id = id
             if @request_post_update.save
-                
                 for job in RequestPost.find(id).request_post_jobs
                     if job.user_id != nil && (usr = VolunteerUser.find(job.user_id))
                         usr.notifications.create(title: "A job you're doing has been updated",
                         description: "#{@request_post_update.title.truncate(15)} .:. #{@request_post_update.text.truncate(15)} <%= link_to \"See it now!\", \"request_posts/#{id}\" %>")
                     end
                 end
-                
                 redirect_to request_post_path(id)
             else
-                redirect_to root_url
+                flash[:danger] = "Nice try."
+                redirect_to request_post_path(id)
             end
         end
     end
