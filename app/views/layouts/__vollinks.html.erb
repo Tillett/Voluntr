@@ -7,6 +7,9 @@
       <%= link_to "Notifications (" + current_volunteer_user.notifications.count.to_s + ")", notifications_url%>
     </li>
     <li>
+      <%= link_to "Following" , following_path %>
+    </li>
+    <li>
       <%= link_to "Profile", current_volunteer_user %>
     </li>
     <li>
