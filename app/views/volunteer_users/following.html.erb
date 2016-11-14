@@ -9,12 +9,11 @@
         <% for rels in Relationship.all.select{|x| x.follower_id == current_volunteer_user.id} %>
             <div class = "notification">
                 <% jobs = RequestPost.all.select{|x| x.request_user_id == rels.followed_id} %>
-                <% req_name = RequestUser.find(rels.followed_id).display_name  %>
-                <h1><%= req_name %></h1>
-                <% for job in jobs.take(5) %>
-                      <%= job.title.truncate(25) %> -- <%= job.description.truncate(25) %> -- 
-                    <%= link_to "<click me!>", job %> 
-                    <br>
+                <% req_name = RequestUser.find(rels.followed_id).display_name %>
+                <h1><%= link_to req_name, RequestUser.find(rels.followed_id) %></h1>
+                <% for job in jobs.take(20) %>
+                      <%= job.title.truncate(25) %> -- <%= job.description.truncate(25) %> --
+                    <%= link_to "<click me!>", job %> <br>
                 <% end %>    
             </div>
         <% end %>

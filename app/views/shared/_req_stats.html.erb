@@ -1,6 +1,6 @@
 <% @request_user ||= current_user %>
 <div class="stats">
-  <a href="<%= followers_request_user_path(@request_user) %>">
+  <a href="<%= request_user_path %>">
     <strong id="followers" class="stat">
       <%= @request_user.followers.count %>
     </strong>
