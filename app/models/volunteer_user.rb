@@ -21,7 +21,7 @@ class VolunteerUser < ApplicationRecord
   has_many :skills, through: :volunteer_user_skills
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
-  has_attached_file :avatar, :styles => { :small => "150x150>" }
+  has_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   
   def VolunteerUser.new_token
