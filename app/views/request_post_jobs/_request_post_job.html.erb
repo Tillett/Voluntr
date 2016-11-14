@@ -6,6 +6,7 @@
     <% end %>
     <% if request_post_job.user_id && (vol = VolunteerUser.find(request_post_job.user_id))%>
      -- job being done by <%= vol.display_name %>
+     <% end %>
     <% if users_id_is(request_post_job.user_id) %>
         <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
     <% end %>

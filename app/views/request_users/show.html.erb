@@ -78,7 +78,7 @@
         <section class="section-right">
             <h3>Recent Events</h3>
 
-            <% @request_user.request_posts.each do |request_post| %>
+            <% for request_post in @request_user.request_posts.all.take(2) %>
 
                 <div class="notification">
                     <h4>
