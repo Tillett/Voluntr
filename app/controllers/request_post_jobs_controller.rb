@@ -16,6 +16,10 @@ class RequestPostJobsController < ApplicationController
     
     @request_post_job.request_post_id = @request_post.id
     
+    ##Initialize Review Flags
+    @request_post_job.volunteer_reviewed = false
+    @request_post_job.request_reviewed = false
+    
     if @request_post_job.save
       flash[:success] = "Request Post Job Created"
       redirect_to @request_post

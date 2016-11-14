@@ -71,7 +71,7 @@ class VolunteerUsersController < ApplicationController
   private
   
     def volunteer_user_params
-      params.require(:volunteer_user).permit(:email, :display_name, :zip_code,
+      params.require(:volunteer_user).permit(:email, :request_post_job_id, :display_name, :zip_code,
       :about_me, :points, :rev_count, :no_search, :password, 
       :password_confirmation, :avatar, skill_ids: [])
     end

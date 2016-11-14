@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113043149) do
+ActiveRecord::Schema.define(version: 20161114185723) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "volunteer_user_id"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20161113043149) do
     t.text     "description"
     t.datetime "avail"
     t.integer  "user_id"
+    t.boolean  "volunteer_reviewed"
+    t.boolean  "request_reviewed"
     t.index ["request_post_id"], name: "index_request_post_jobs_on_request_post_id"
   end
 
