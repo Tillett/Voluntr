@@ -1,18 +1,20 @@
 <% provide(:title, 'Seach Posts') %>
   <h1>Search for a Posting</h1>
 
-  <%= form_tag reqposts_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-    </p>
-    <% end %>
+  <section class="container-section">
+    <%= form_tag reqposts_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+      </p>
+      <% end %>
 
-      <ul class="request_posts">
-        <% @request_posts.each do |reqpost| %>
-          <li>
-            <%= link_to reqpost.title, reqpost %>
-              <%= reqpost.location %>
-          </li>
-          <% end %>
-      </ul>
+        <ul class="request_posts">
+          <% @request_posts.each do |reqpost| %>
+            <li>
+              <%= link_to reqpost.title, reqpost %>
+                <%= reqpost.location %>
+            </li>
+            <% end %>
+        </ul>
+  </section>

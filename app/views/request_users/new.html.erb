@@ -1,9 +1,10 @@
 <h1>Organization Sign Up</h1>
+<section class= "container-section">
 <p1>
   <%= link_to "Already have an account? Sign in here", reqlogin_path %>
 </p1>
 <p>
-  <%= form_for(@request_user) do |f| %>
+  <%= form_for @request_user, html: { multipart: true } do |f| %>
     <%= render 'shared/req_error_messages' %>
 
       <%= f.label :email %>
@@ -24,13 +25,17 @@
                           <%= f.label :about_me, "About Me" %>
                             <%= f.text_area :about_me, class: 'form-control' %>
 
-                              <%= f.label :password %>
-                                <%= f.password_field :password, class: 'form-control' %>
+                              <%= f.label :logo, "Logo" %>
+                                <%= f.file_field :logo %>
 
-                                  <%= f.label :password_confirmation, "Confirm" %>
-                                    <%= f.password_field :password_confirmation, class: 'form-control' %>
+                                  <%= f.label :password %>
+                                    <%= f.password_field :password, class: 'form-control' %>
 
-                                      <%= f.submit "Create account" %>
+                                      <%= f.label :password_confirmation, "Confirm" %>
+                                        <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-                                        <% end %>
+                                          <%= f.submit "Create account" %>
+
+                                            <% end %>
 </p>
+</section>

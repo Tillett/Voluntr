@@ -1,9 +1,11 @@
 <ul>
-    <%= request_post_job.title %> -- <%= request_post_job.description %> 
+    <%= request_post_job.title %> --
+    <%= request_post_job.description %>
     <% if !request_post_job.user_id && (usr = current_volunteer_user) %>
         <%= link_to "<Apply for this job!>", {:controller => :request_post_jobs, :action => :user_sig_interest, :vid => usr.id}, method: :post  %>
     <% end %>
     <% if request_post_job.user_id && (vol = VolunteerUser.find(request_post_job.user_id))%>
+<<<<<<< HEAD
         -- job being done by <%= vol.display_name %>
         <% if users_id_is(request_post_job.user_id) %>
             <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
@@ -12,6 +14,14 @@
         <%= link_to "<Review Volunteer>", "/volreview", :volunteer_user_id => request_post_job.user_id %>
         <% end %>
         <% if requester_has_post(request_post_job.request_post_id) %>
+=======
+     -- job being done by <%= vol.display_name %>
+    <% if users_id_is(request_post_job.user_id) %>
+        <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
+    <% end %>
+    <% if requester_has_post(request_post_job.request_post_id) %>
+        <%= link_to "<Review Volunteer> ", "/volreview", :volunteer_user_id => request_post_job.user_id %>
+>>>>>>> 4268d51d91b6bc1233c6d8e8e7c99bdf64a489e1
         <%= link_to "<Dismiss User>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
         <% end %>
     <% end %>

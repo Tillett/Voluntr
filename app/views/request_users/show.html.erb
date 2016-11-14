@@ -1,14 +1,17 @@
+<h1>
+    <%= image_tag @request_user.logo.url %>
+        <%= @request_user.display_name %>
+</h1>
+
 <div class="RequestInfo">
 
     <section class="container-section">
 
         <section class="section-left">
 
-            <h1>
-                <%= image_tag @request_user.logo.url %>
-                    <p><br /></p>
-                    <%= @request_user.display_name %>
-            </h1>
+            <p>
+                <%= render 'shared/req_stats' %>
+            </p>
 
             <p>Email:
                 <%= @request_user.email %>
@@ -26,27 +29,25 @@
         </section>
 
         <section class="section-right">
-            <div class="topcorner">
-                <p>
-                    <%= render 'shared/req_stats' %>
-                </p>
-                <% if volunteer_user_logged_in? %>
+
+            <% if volunteer_user_logged_in? %>
+                <div class="topcorner">
                     <p>
                         <%= render 'follow_form' %>
                     </p>
-                    <% end %>
-            </div>
+                </div>
+                <% end %>
 
-            <h3>About Me</h3>
-            <p>
-                <%= @request_user.about_me %>
-                    <p><br /></p>
-            </p>
-            <% if @request_user.website_address.empty? %>
-                <p>No Website</p>
-                <% else %>
-                    <%= link_to "Website", @request_user.website_address %>
-                        <% end %>
+                    <h3>About Me</h3>
+                    <p>
+                        <%= @request_user.about_me %>
+                            <p><br /></p>
+                    </p>
+                    <% if @request_user.website_address.empty? %>
+                        <p>No Website</p>
+                        <% else %>
+                            <%= link_to "Website", @request_user.website_address %>
+                                <% end %>
         </section>
 
     </section>

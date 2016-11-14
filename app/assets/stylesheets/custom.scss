@@ -210,6 +210,8 @@ checkbox {
   }
 }
 
+//following
+
 .stats {
   overflow: auto;
   margin-top: 0;
@@ -256,6 +258,57 @@ checkbox {
     color: white;
   }
 }
+
+/*Link Boxes
+
+a:link, a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: green;
+    color: white;
+}
+
+*/
+
+/*Data Table for Availability
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+*/
+
+
+
+//
+
 
 
 /* Experimental (Tillett)

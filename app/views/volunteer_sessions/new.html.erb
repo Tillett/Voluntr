@@ -1,7 +1,5 @@
 <h1>Volunteer Login</h1>
-<p1>
-  <%= link_to "Don't have an account? Sign up here", volsignup_path %>
-</p1>
+<section class= "container-section">
 <p>
   <%= form_for(:session, url: vollogin_path) do |f| %>
     <%= f.label :email %>
@@ -14,7 +12,10 @@
               <%= f.check_box :remember_me %>
                 <span>Remember me on this computer</span>
                 <% end %>
-
                   <%= f.submit "Log in" %>
                     <% end %>
 </p>
+<p1>
+  <%= link_to "Don't have an account? Sign up here", volsignup_path %>
+</p1>
+</section>

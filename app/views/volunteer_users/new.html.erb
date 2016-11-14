@@ -1,9 +1,10 @@
 <h1>Volunteer Sign Up</h1>
+<section class= "container-section">
 <p1>
   <%= link_to "Already have an account? Sign in here", vollogin_path %>
 </p1>
 <p>
-  <%= form_for(@volunteer_user) do |f| %>
+  <%= form_for @volunteer_user, html: { multipart: true } do |f| %>
     <%= render 'shared/vol_error_messages' %>
 
       <%= f.label :email %>
@@ -17,6 +18,9 @@
 
                   <%= f.label :about_me, "About Me" %>
                     <%= f.text_area :about_me, class: 'form-control' %>
+                    
+                                    <%= f.label :avatar, "Profile Picture" %>
+                  <%= f.file_field :avatar %>
 
                       <section class="container-section">
                         <h3>Skills: </h3>
@@ -38,3 +42,4 @@
 
                                     <% end %>
 </p>
+</section>
