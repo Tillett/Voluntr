@@ -65,13 +65,16 @@ class VolunteerUsersController < ApplicationController
   end
   
   def following
-    @volunteer_user = VolunteerUser.find(current_volunteer_user)
+    if (!current_volunteer_user)
+      redirect_to root_url
+    end
+    @volunteer_user = current_volunteer_user
   end
   
   private
   
     def volunteer_user_params
-      params.require(:volunteer_user).permit(:email, :display_name, :zip_code,
+      params.require(:volunteer_user).permit(:email, :request_post_job_id, :display_name, :zip_code,
       :about_me, :points, :rev_count, :no_search, :password, 
       :password_confirmation, :avatar, skill_ids: [])
     end

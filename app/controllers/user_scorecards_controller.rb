@@ -31,6 +31,9 @@ class UserScorecardsController < ApplicationController
         @points = @points + @add_points
         @vol_user.update_attribute(:points, @points)
         
+        ##Set the job volunteer flag as reviewed
+        @job = RequestPostJob.find(params[:request_post_job_id])
+        @job.update_attribute(:volunteer_reviewed, true)
     end
     
     def show
@@ -40,7 +43,7 @@ class UserScorecardsController < ApplicationController
     private
     
         def user_scorecard_params
-            params.require(:user_scorecard).permit(:volunteer_user_id, :skill_proficiency, :attitude,
+            params.require(:user_scorecard).permit(:volunteer_user_id, :request_post_job_id, :skill_proficiency, :attitude,
                 :enthusiasm, :reliability)
         end
 end
