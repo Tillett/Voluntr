@@ -4,15 +4,20 @@
             <% end %>
 </div>
 
+<h1>
+    <%= image_tag @volunteer_user.avatar.url %>
+        <%= @volunteer_user.display_name %>
+</h1>
+
 <div class="VolunteerInfo">
     <section class="container-section">
 
         <section class="section-left">
-            <h1>
-                <%= image_tag @volunteer_user.avatar.url %>
-                    <p><br /></p>
-                    <%= @volunteer_user.display_name %>
-            </h1>
+
+
+            <p>
+                <%= render 'shared/vol_stats' %>
+            </p>
 
             <p>Email:
                 <%= @volunteer_user.email %>
@@ -30,25 +35,16 @@
 
         <section class="section-right">
 
-            <section class="section-left">
-                <h3>About Me</h3>
-                <p>
-                    <%= @volunteer_user.about_me %>
+            <h3>About Me</h3>
+            <p>
+                <%= @volunteer_user.about_me %>
+            </p>
+            <% if @volunteer_user.skills.any? %>
+                <p>Skills:
+                    <%= render @volunteer_user.skills %>
                 </p>
-                <% if @volunteer_user.skills.any? %>
-                    <p>Skills:
-                        <%= render @volunteer_user.skills %>
-                    </p>
-                    <% end %>
-            </section>
+                <% end %>
 
-            <section class="section-right">
-                <div class="topcorner">
-                    <p>
-                        <%= render 'shared/vol_stats' %>
-                    </p>
-                </div>
-            </section>
 
         </section>
     </section>
