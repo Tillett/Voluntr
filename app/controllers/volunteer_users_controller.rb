@@ -65,7 +65,10 @@ class VolunteerUsersController < ApplicationController
   end
   
   def following
-    @volunteer_user = VolunteerUser.find(current_volunteer_user)
+    if (!current_volunteer_user)
+      redirect_to root_url
+    end
+    @volunteer_user = current_volunteer_user
   end
   
   private

@@ -13,7 +13,8 @@
                 <h1><%= req_name %></h1>
                 <% for job in jobs.take(5) %>
                       <%= job.title.truncate(25) %> -- <%= job.description.truncate(25) %> -- 
-                    <%= link_to "<click me!>", job %> <br>
+                    <%= link_to "<click me!>", job %> 
+                    <br>
                 <% end %>    
             </div>
         <% end %>
