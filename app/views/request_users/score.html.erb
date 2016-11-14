@@ -1,0 +1,19 @@
+<div class = "ReviewRequester">
+    <h1>Organization Review</h1>
+    <p>
+        <%= form_for RequestUserScorecard.find_by(params[:request_user_id]) do |f| %>
+            <%= f.hidden_field :request_user_id %>
+            
+            <%= f.label :leadership, "Leadership" %>
+            <%= f.text_field :leadership %>
+            
+            <%= f.label :treatment, "Treatment" %>
+            <%= f.text_field :treatment %>
+            
+            <%= f.label :committedness, "Committedness" %>
+            <%= f.text_field :committedness %>
+            
+            <%= f.submit "Confirm Review" %>
+        <% end %>
+    </p>
+</div>

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get '/requsers', to: 'request_users#index'
   get '/reqposts', to: 'request_posts#index'
   get '/volreview', to: 'volunteer_users#score'
+  get '/orgreview', to: 'request_users#score'
   get '/reqlogin', to: 'request_sessions#new'
   post '/reqlogin', to: 'request_sessions#create'
   delete '/reqlogout', to: 'request_sessions#destroy'

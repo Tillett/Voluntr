@@ -6,8 +6,16 @@
     <% end %>
     <% if request_post_job.user_id && (vol = VolunteerUser.find(request_post_job.user_id))%>
      -- job being done by <%= vol.display_name %>
+<<<<<<< HEAD
      <% end %>
     <% if users_id_is(request_post_job.user_id) %>
+=======
+    <% end %>
+    <% if users_id_is(request_post_job.user_id) && (req_post = RequestPost.find(request_post_job.request_post_id)) %>
+        <% if org = RequestUser.find(req_post.request_user_id) %>
+            <%= link_to "<Review Organization> ", "/orgreview", :request_user_id => request_post_job.request_post_id %>
+        <% end %>
+>>>>>>> f4a6075126734c96d6dabcf27ae24bb193bd02de
         <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
     <% end %>
     <% if requester_has_post(request_post_job.request_post_id) %>
