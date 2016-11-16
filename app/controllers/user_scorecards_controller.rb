@@ -31,8 +31,9 @@ class UserScorecardsController < ApplicationController
         @points = @points + @add_points
         @vol_user.update_attribute(:points, @points)
     
-        @job = RequestPostJob.find(params[:rpjid])
+        @job = RequestPostJob.find(params[:request_user_scorecard][:rpjid])
         @job.update_attribute(:volunteer_reviewed, true)
+        redirect_to @vol_user
     end
     
     def show

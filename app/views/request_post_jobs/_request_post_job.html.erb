@@ -2,7 +2,7 @@
     <%= request_post_job.title %> --
     <%= request_post_job.description %>
     <% if !request_post_job.user_id && (usr = current_volunteer_user) %>
-        <%= link_to "<Apply for this job!>", {:controller => :request_post_jobs, :action => :user_sig_interest, :vid => usr.id}, method: :post  %>
+        <%= link_to "<Apply for this job!>", {:controller => :request_post_jobs, :action => :user_sig_interest, :vid => usr.id, :id => request_post_job.id}, method: :post  %>
     <% end %>
     <% if request_post_job.user_id && (vol = VolunteerUser.find(request_post_job.user_id))%>
      -- job being done by <%= vol.display_name %>

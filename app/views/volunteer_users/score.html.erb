@@ -1,10 +1,11 @@
 <div class = "ReviewVolunteer">
     <h1>Volunteer Review</h1>
-    <p>Job Id: <%= params[:request_post_job_id] %> </p>
+    <p>Job Id: <%= params[:rpjid] %> </p>
+    <p>volunteer_user_id: <%= params[:volunteer_user_id] %></p>
     <p>
         <%= form_for UserScorecard.find_by(params[:volunteer_user_id]) do |f| %>
             <%= f.hidden_field :volunteer_user_id %>
-            <%= hidden_field_tag(:request_post_job_id, params[:rpjid]) %>
+            <%= hidden_field_tag(:rpjid, params[:rpjid]) %>
             
             <%= f.label :skill_proficiency, "Skill Proficiency" %>
             <%= f.text_field :skill_proficiency %>
