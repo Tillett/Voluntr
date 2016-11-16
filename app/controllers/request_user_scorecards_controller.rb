@@ -29,7 +29,7 @@ class RequestUserScorecardsController < ApplicationController
         redirect_to @req_user
         
         ##Set the job volunteer flag as reviewed
-        @job = RequestPostJob.find(params[:request_post_job_id])
+        @job = RequestPostJob.find(params[:rpjid])
         @job.update_attribute(:organization_reviewed, true)
     end
     
