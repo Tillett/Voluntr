@@ -30,9 +30,8 @@ class UserScorecardsController < ApplicationController
         @add_points = 5.0 * (@new_skill_prof + @new_attit + @new_reliab + @new_enth)
         @points = @points + @add_points
         @vol_user.update_attribute(:points, @points)
-        
-        ##Set the job volunteer flag as reviewed
-        @job = RequestPostJob.find(params[:request_post_job_id])
+    
+        @job = RequestPostJob.find(params[:rpjid])
         @job.update_attribute(:volunteer_reviewed, true)
     end
     

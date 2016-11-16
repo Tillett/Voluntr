@@ -27,7 +27,6 @@ class RequestUserScorecardsController < ApplicationController
         @review_count = 1.0 + @req_user.rev_count.to_f
         @req_user.update_attribute(:rev_count, @review_count)
         redirect_to @req_user
-        
     end
     
     def show
