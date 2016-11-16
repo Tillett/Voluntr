@@ -3,6 +3,7 @@
     <p>
         <%= form_for RequestUserScorecard.find_by(params[:request_user_id]) do |f| %>
             <%= f.hidden_field :request_user_id %>
+            <%= hidden_field_tag(:request_post_job_id, params[:rpjid]) %>
             
             <%= f.label :leadership, "Leadership" %>
             <%= f.text_field :leadership %>
