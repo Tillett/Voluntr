@@ -23,15 +23,13 @@ class UserScorecardsController < ApplicationController
         @user_scorecard.update_attribute(:attitude, @attit)
         @user_scorecard.update_attribute(:enthusiasm, @enth)
         @user_scorecard.update_attribute(:reliability, @reliab)
-        redirect_to current_request_user
         @review_count = 1.0 + @vol_user.rev_count.to_f
         @vol_user.update_attribute(:rev_count, @review_count)
         @points = @vol_user.points.to_f
         @add_points = 5.0 * (@new_skill_prof + @new_attit + @new_reliab + @new_enth)
         @points = @points + @add_points
         @vol_user.update_attribute(:points, @points)
-    
-        @job = RequestPostJob.find(params[:request_user_scorecard][:rpjid])
+        @job = RequestPostJob.find(params[:rpjid])
         @job.update_attribute(:volunteer_reviewed, true)
         redirect_to @vol_user
     end

@@ -9,16 +9,16 @@
     <% end %>
     <% if users_id_is(request_post_job.user_id) && (req_post = RequestPost.find(request_post_job.request_post_id)) %>
         <% if org = RequestUser.find(req_post.request_user_id) && !request_post_job.request_reviewed %>
-            <%= link_to "<Review Organization> ", "/orgreview", :request_user_id => request_post_job.request_post_id, :rpjid => request_post_job.id %>
+            <%= link_to "<Review Organization> ", controller: :request_users, action: :score, :request_user_id => request_post_job.request_post_id, :rpjid => request_post_job.id %>
         <% end %>
-        <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
+        <%= link_to "<Leave this job!>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil", :id => request_post_job.id}, method: :post %>
     <% end %>
     <!-- If the post owner is looking at the job and the job is occupied -->
     <% if requester_has_post(request_post_job.request_post_id) && request_post_job.user_id != nil %>
         <!-- Don't let the organization review the volunteer if they already have -->
         <% if !request_post_job.volunteer_reviewed %>
-            <%= link_to "<Review Volunteer> ", "/volreview", :volunteer_user_id => request_post_job.user_id, :rpjid => request_post_job.id %>
+            <%= link_to "<Review Volunteer> ", controller: :volunteer_users, action: :score, :volunteer_user_id => request_post_job.user_id, :rpjid => request_post_job.id %>
         <% end %>
-        <%= link_to "<Dismiss User>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil"}, method: :post %>
+        <%= link_to "<Dismiss User>", {:controller => :request_post_jobs, :action => :assoc_with_user, :vid => "nil", :id => request_post_job.id}, method: :post %>
     <% end %>
 </ul>
