@@ -132,14 +132,14 @@
                         <tr>
                             <th>Thursday</th>
                             <td>
-                                <% if (!@volunteer_user.availability.thur_st) %>
+                                <% if (@volunteer_user.availability.thur_st.nil?) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.thur_st.strftime("%I:%M %p") %>
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.thur_en) %>
+                                <% if (@volunteer_user.availability.thur_en.nil?) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.thur_en.strftime("%I:%M %p") %>
