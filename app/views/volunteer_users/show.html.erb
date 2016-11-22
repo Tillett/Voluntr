@@ -135,7 +135,7 @@
                                 <% if (@volunteer_user.availability.thur_st.nil?) %>
                                     <%= "Unavailable" %>
                                 <% else %>
-                                    <%= @volunteer_user.availability.thur_st.strftime("%I:%M %p") %>
+                                    <%= @volunteer_user.availability.thur_st.strftime("%I:%M %p") #is this showing? %>
                                 <% end %>
                             </td>
                             <td>
