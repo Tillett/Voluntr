@@ -170,6 +170,7 @@
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.sat_st.strftime("%I:%M %p") %>
+                                <% end %>
                             </td>
                             <td>
                                 <% if (!@volunteer_user.availability.sat_en) %>
