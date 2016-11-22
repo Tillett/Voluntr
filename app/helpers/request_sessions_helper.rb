@@ -1,7 +1,7 @@
 module RequestSessionsHelper
   
   def request_log_in(request_user)
-    clear_logins
+    #clear_logins
     session[:request_user_id] = request_user.id
   end
   
