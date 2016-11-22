@@ -1,13 +1,5 @@
 class RequestUsersController < ApplicationController
   def new
-    if(!current_request_user.nil?) {
-      session.delete(:request_user_id)
-      @current_request_user = nil
-    }
-    if(!current_volunteer_user.nil?){
-      session.delete(:volunteer_user_id)
-      @current_volunteer_user = nil
-    }
     @request_user = RequestUser.new
   end
   
