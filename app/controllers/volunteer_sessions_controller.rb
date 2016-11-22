@@ -3,6 +3,7 @@ class VolunteerSessionsController < ApplicationController
   end
   
   def create
+    clear_logins
     #Find the volunteer user in the database
     volunteer_user = VolunteerUser.find_by(email: params[:session][:email].downcase)
     #If the volunteer user logging in is found and their password digest matches,

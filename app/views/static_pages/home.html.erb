@@ -5,13 +5,14 @@
 </center>
 
 <section class="container-section">
+    <% if !(request_user_logged_in? || volunteer_user_logged_in?)  %>
     <p>
         <%= link_to "Looking for volunteers? Sign up here.", reqsignup_path %>
     </p>
     <p>
         <%= link_to "Interested in volunteering? Sign up here.", volsignup_path %>
     </p>
-
+    <% end %>
     Some Recent Requests:
     <% for i in RequestPost.take(25) %>
         <div class="notification">
@@ -19,5 +20,5 @@
                 <%= i.description.truncate(25, omission: "...") %>
                     <%= link_to "<click me!>", i %>
         </div>
-        <% end %>
+    <% end %>
 </section>

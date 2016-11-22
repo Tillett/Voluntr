@@ -35,4 +35,9 @@ class ApplicationController < ActionController::Base
     end
     false
   end
+  
+  def clear_logins
+    request_user_log_out
+    volunteer_user_log_out
+  end
 end
