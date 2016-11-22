@@ -88,7 +88,7 @@
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.mon_st) %>
+                                <% if (!@volunteer_user.availability.mon_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.mon_en.strftime("%I:%M %p") %>
@@ -105,7 +105,7 @@
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.tues_st) %>
+                                <% if (!@volunteer_user.availability.tues_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.tues_en.strftime("%I:%M %p") %>
@@ -122,7 +122,7 @@
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.wed_st) %>
+                                <% if (!@volunteer_user.availability.wed_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.wed_en.strftime("%I:%M %p") %>
@@ -139,7 +139,7 @@
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.thur_st) %>
+                                <% if (!@volunteer_user.availability.thur_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.thur_en.strftime("%I:%M %p") %>
@@ -156,7 +156,7 @@
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.fri_st) %>
+                                <% if (!@volunteer_user.availability.fri_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.fri_en.strftime("%I:%M %p") %>
@@ -172,7 +172,7 @@
                                     <%= @volunteer_user.availability.sat_st.strftime("%I:%M %p") %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.sat_st) %>
+                                <% if (!@volunteer_user.availability.sat_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                     <%= @volunteer_user.availability.sat_en.strftime("%I:%M %p") %>
@@ -189,7 +189,7 @@
                                 <% end %>
                             </td>
                             <td>
-                                <% if (!@volunteer_user.availability.sun_st) %>
+                                <% if (!@volunteer_user.availability.sun_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
                                 <%= @volunteer_user.availability.sun_en.strftime("%I:%M %p") %>
