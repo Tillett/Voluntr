@@ -30,19 +30,18 @@ class UserScorecardsController < ApplicationController
         @user_scorecard.update_attribute(:reliability, @reliab)
         
         #Update review count and points
+
         @review_count = 1.0 + @vol_user.rev_count.to_f
         @vol_user.update_attribute(:rev_count, @review_count)
         @points = @vol_user.points.to_f
         @add_points = 5.0 * (@new_skill_prof + @new_attit + @new_reliab + @new_enth)
         @points = @points + @add_points
         @vol_user.update_attribute(:points, @points)
-        
-        ##Set the job volunteer flag as reviewed
-        @job = RequestPostJob.find(params[:request_post_job_id])
+        @job = RequestPostJob.find(params[:rpjid])
         @job.update_attribute(:volunteer_reviewed, true)
         
-        #Redirect to request user's profile
-        redirect_to current_request_user
+        #Redirect to user's profile
+        redirect_to @vol_user
     end
     
     def show

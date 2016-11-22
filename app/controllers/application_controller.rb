@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   def requester_has_post(id)
     cuser = current_request_user
     if(cuser != nil)
-      return cuser.request_posts.find(id) != nil
+      return cuser.request_posts.find_by_id(id) != nil
     end
     false
   end

@@ -24,9 +24,12 @@ class RequestUserScorecardsController < ApplicationController
         @request_user_scorecard.update_attribute(:leadership, @lead)
         @request_user_scorecard.update_attribute(:treatment, @treat)
         @request_user_scorecard.update_attribute(:committedness, @commit)
-        redirect_to current_request_user
         @review_count = 1.0 + @req_user.rev_count.to_f
         @req_user.update_attribute(:rev_count, @review_count)
+        #Set the job volunteer flag as reviewed
+        @job = RequestPostJob.find(params[:rpjid])
+        @job.update_attribute(:organization_reviewed, true)
+        redirect_to @req_user
     end
     
     def show
