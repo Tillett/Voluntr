@@ -79,15 +79,10 @@ class VolunteerUsersController < ApplicationController
   end
   
   def following
-<<<<<<< HEAD
-    #Find the volunteer user in the database
-    @volunteer_user = VolunteerUser.find(current_volunteer_user)
-=======
     if (!current_volunteer_user)
       redirect_to root_url
     end
     @volunteer_user = current_volunteer_user
->>>>>>> 2f44c3ff6ed8784fdbccb5849566b735e4abfc23
   end
   
   private
