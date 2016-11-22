@@ -192,7 +192,8 @@
                                 <% if (!@volunteer_user.availability.sun_en) %>
                                     <%= "Unavailable" %>
                                 <% else %>
-                                <%= @volunteer_user.availability.sun_en.strftime("%I:%M %p") %>
+                                    <%= @volunteer_user.availability.sun_en.strftime("%I:%M %p") %>
+                                <% end %>
                             </td>
                         </tr>
                     </table>
