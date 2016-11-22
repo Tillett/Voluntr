@@ -2,7 +2,7 @@ class VolunteerUsersController < ApplicationController
   
   def index
     #Redirect to home page if a volunteer user is not logged in
-    if (!current_volunteer_user)
+    if (!current_request_user)
       redirect_to root_url
     end
     
