@@ -20,8 +20,9 @@ class VolunteerUsersController < ApplicationController
     @volunteer_user = VolunteerUser.new(volunteer_user_params)
     #Create an empty scorecard for the volunteer user
     @volunteer_user.user_scorecard = UserScorecard.new
-    @volunteer_user.build_user_scorecard( volunteer_user_id: @volunteer_user_id, 
+    @volunteer_user.build_user_scorecard(volunteer_user_id: @volunteer_user_id, 
                 skill_proficiency: 0,attitude: 0,enthusiasm: 0, reliability: 0)
+    @volunteer_user.build_availability(volunteer_user_id: @volunteer_user_id)
     #Initialize variables
     @volunteer_user.points = 0
     @volunteer_user.rev_count = 0
@@ -30,7 +31,7 @@ class VolunteerUsersController < ApplicationController
       volunteer_log_in @volunteer_user
       flash[:success] = "Log in successful"
       @scorecard_id = @volunteer_user.user_scorecard.id
-      redirect_to newavailability_path
+      redirect_to edit_availability_path
     #If save is unsuccessful, display warning and render form again
     else
       flash.now[:danger] = "Please check the fields carefully"
