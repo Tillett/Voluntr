@@ -24,7 +24,7 @@ class AvailabilitiesController < ApplicationController
   end
   
   def update
-    @availability = Availability.find_by(params[:id])
+    @availability = Availability.find_by(volunteer_user_id: params[:id])
     if @availability.update_attributes(availability_params)
       @availability = availability_params
       redirect_to current_volunteer_user
