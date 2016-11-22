@@ -11,6 +11,14 @@ class VolunteerUsersController < ApplicationController
   end
   
   def new
+    if(!current_request_user.nil?) {
+      session.delete(:request_user_id)
+      @current_request_user = nil
+    }
+    if(!current_volunteer_user.nil?){
+      session.delete(:volunteer_user_id)
+      @current_volunteer_user = nil
+    }
     #Create a new volunteer user record
     @volunteer_user = VolunteerUser.new
   end
