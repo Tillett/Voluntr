@@ -1,7 +1,7 @@
 module VolunteerSessionsHelper
 
   def volunteer_log_in(volunteer_user)
-    #clear_logins
+    clear_logins
     session[:volunteer_user_id] = volunteer_user.id
   end
   

@@ -3,7 +3,7 @@ class RequestSessionsController < ApplicationController
   end
   
   def create
-    #clear_logins
+    clear_logins
     #Find the request user in the database
     request_user = RequestUser.find_by(email: params[:session][:email].downcase)
     #If the request user logging in is found and their password digest matches, log them in
