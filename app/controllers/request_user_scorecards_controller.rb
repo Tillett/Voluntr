@@ -11,9 +11,12 @@ class RequestUserScorecardsController < ApplicationController
     end
     
     def update
+        #Find the request user scorecard in the database
         @request_user_scorecard = RequestUserScorecard.find_by(request_user_id: params[:request_user_scorecard][:request_user_id])
+        #Find the request user associated with the scorecard in the database
         @req_user = RequestUser.find_by(id: params[:request_user_scorecard][:request_user_id])
-        @old_reviews = 0
+        
+        #Average old scored with new scores
         @old_review_count = @req_user.rev_count.to_f
         @new_lead = params[:request_user_scorecard][:leadership].to_f
         @lead = ((@new_lead.to_f + (@request_user_scorecard.leadership.to_f * @old_review_count.to_f)) / ((@old_review_count + 1.0).to_f))
@@ -21,14 +24,21 @@ class RequestUserScorecardsController < ApplicationController
         @treat = ((@new_treat + (@request_user_scorecard.treatment * @old_review_count)) / (@old_review_count + 1))
         @new_commit = params[:request_user_scorecard][:committedness].to_f
         @commit = ((@new_commit + (@request_user_scorecard.committedness * @old_review_count)) / (@old_review_count + 1))
+        
+        #Update user scorecard in the database
         @request_user_scorecard.update_attribute(:leadership, @lead)
         @request_user_scorecard.update_attribute(:treatment, @treat)
         @request_user_scorecard.update_attribute(:committedness, @commit)
+        
+        #Update review count
         @review_count = 1.0 + @req_user.rev_count.to_f
         @req_user.update_attribute(:rev_count, @review_count)
+        
         #Set the job volunteer flag as reviewed
         @job = RequestPostJob.find(params[:rpjid])
-        @job.update_attribute(:organization_reviewed, true)
+        @job.update_attribute(:request_reviewed, true)
+        
+        #Redirect to user's profile
         redirect_to @req_user
     end
     

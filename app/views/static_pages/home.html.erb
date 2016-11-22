@@ -13,7 +13,7 @@
     </p>
 
     Some Recent Requests:
-    <% for i in RequestPost.take(x) %>
+    <% for i in RequestPost.take(25) %>
         <div class="notification">
             <%= i.title %> ->
                 <%= i.description.truncate(25, omission: "...") %>
