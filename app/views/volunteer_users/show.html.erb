@@ -81,10 +81,10 @@
                         <tr>
                             <th> Monday </th>
                             <td>
-                                <%= @volunteer_user.availability.mon_st %>
+                                <%= @volunteer_user.availability.mon_st.strftime("%I:%M %p") %>
                             </td>
                             <td>
-                                <%= @volunteer_user.availability.mon_en %>
+                                <%= @volunteer_user.availability.mon_en.strftime("%I:%M %p") %>
                             </td>
                         </tr>
                         <tr>
