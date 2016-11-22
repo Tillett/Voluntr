@@ -5,7 +5,7 @@
 </center>
 
 <section class="container-section">
-    <% if (request_user_logged_in? || volunteer_user_logged_in?)  %>
+    <% if !(request_user_logged_in? || volunteer_user_logged_in?)  %>
     <p>
         <%= link_to "Looking for volunteers? Sign up here.", reqsignup_path %>
     </p>
