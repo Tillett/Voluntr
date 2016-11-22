@@ -31,8 +31,7 @@ class VolunteerUsersController < ApplicationController
       volunteer_log_in @volunteer_user
       flash[:success] = "Log in successful"
       @scorecard_id = @volunteer_user.user_scorecard.id
-      @availability_id = @volunteer_user.availability.id
-      redirect_to edit_availability_path(:availability_id)
+      redirect_to edit_availability_path(@volunteer_user.id)
     #If save is unsuccessful, display warning and render form again
     else
       flash.now[:danger] = "Please check the fields carefully"
