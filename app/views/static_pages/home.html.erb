@@ -12,10 +12,6 @@
         <%= link_to "Interested in volunteering? Sign up here.", volsignup_path %>
     </p>
 
-    <% if (RequestPost.count < 5) %>
-    <% x = RequestPost.count %>
-    <% else x = 5 %>
-    <% end %>
     Some Recent Requests:
     <% for i in RequestPost.take(x) %>
         <div class="notification">
