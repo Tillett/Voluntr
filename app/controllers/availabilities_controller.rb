@@ -20,6 +20,7 @@ class AvailabilitiesController < ApplicationController
   end
   
   def edit
+    if (params)
     @availability = Availability.find_by(volunteer_user_id: params[:id])
   end
   
