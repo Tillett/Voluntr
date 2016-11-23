@@ -3,10 +3,10 @@
 <p>
   <%= form_for(:session, url: reqlogin_path) do |f| %>
     <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email %><br>
 
         <%= f.label :password %>
-          <%= f.password_field :password %>
+          <%= f.password_field :password %><br>
 
             <%= f.label :remember_me do %>
               <%= f.check_box :remember_me %>
