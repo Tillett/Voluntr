@@ -22,7 +22,7 @@
                       <%= f.label :about_me %>
                         <%= f.text_field :about_me, class: 'form-control' %>
 
-                          <section class="container-section">
+                          <section class="container-skills">
                             <h3>Skills: </h3>
                             <%= f.collection_check_boxes :skill_ids, Skill.order(:title), :id, :title,
         {class: "checkbox_container"}, 
