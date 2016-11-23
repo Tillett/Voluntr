@@ -7,7 +7,6 @@ input {
 </head>
 <h3>Availability</h3>
 <section class = container-section>
-<form>
 <%= form_for(@availability) do |f| %>
   <%= f.label :mon_st %>
   <%= f.time_field :mon_st %>
@@ -54,5 +53,4 @@ input {
   <%= f.submit "Update" %>
   
 <% end %>
-</form>
 </section>
