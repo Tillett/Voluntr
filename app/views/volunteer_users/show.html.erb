@@ -1,4 +1,6 @@
-<div align="center">
+
+
+<div align="right">
     <% if ((cuser = current_request_user) != nil) %>
         <%= link_to "<Notify this user you are interested in them!>", {:controller => :volunteer_users, :action => :signal_interest, :rid => cuser.id}, method: :post  %>
             <% end %>
@@ -58,23 +60,38 @@
         <section class="section-left">
 
             <h3>Scorecard</h3>
-            <p>Skill Proficiency:
+            <table class = "table-scorecard">
+                <tr>
+            <th>Skill Proficiency</th>
+            <td>
                 <%= @volunteer_user.user_scorecard.skill_proficiency %>
-            </p>
-            <p>Attitude:
+            </td>
+            </tr>
+            <tr>
+            <th>Attitude</th>
+            <td>
                 <%= @volunteer_user.user_scorecard.attitude %>
-            </p>
-            <p>Enthusiasm:
+            </td>
+            </tr>
+            <tr>
+            <th>Enthusiasm</th>
+                <td>
                 <%= @volunteer_user.user_scorecard.enthusiasm %>
-            </p>
-            <p>Reliability:
+            </td>
+            </tr>
+            <tr>
+            <th>Reliability</th>
+            <td>
                 <%= @volunteer_user.user_scorecard.reliability %>
-            </p>
+            </td>
+            </tr>
+            </table>
         </section>
 
         <section class="section-right">
             <h3>Availability</h3>
             
+            <table>
             <% if @volunteer_user.availability %>
                 <body>
                     <table border="1">
@@ -200,7 +217,7 @@
                     </table>
                 </body>
             <% end %>
-            
+            </table>
             <p>
                 <%= link_to "Edit availability", edit_availability_path %>
             </p>

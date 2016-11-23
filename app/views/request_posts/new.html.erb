@@ -1,15 +1,18 @@
+   <h3>Post an Event!</h3>
+<section class= "container-section">
 <%= form_for(@request_post) do |f| %>
 <%= f.label :title %>
-<%= f.text_field :title %>
+<%= f.text_field :title %><br>
 
 <%= f.label :location %>
-<%= f.text_field :location %>
+<%= f.text_field :location %><br>
 
 <%= f.label :date %>
-<%= f.date_field :date %>
+<%= f.date_field :date %><br>
 
 <%= f.label :description %>
-<%= f.text_area :description %>
+<%= f.text_area :description %><br>
 
 <%= f.submit "Post" %>
 <% end %>
+</section>

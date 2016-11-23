@@ -1,3 +1,11 @@
+<head>
+<style>
+input {
+    width: 50%;
+}
+</style>
+</head>
+<form>
 <%= form_for(@availability) do |f| %>
   <%= f.label :mon_st %>
   <%= f.time_field :mon_st, value: "%H:%M" %>
@@ -44,4 +52,4 @@
   <%= f.submit "Update" %>
   
 <% end %>
-
+</form>

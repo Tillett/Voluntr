@@ -2,14 +2,24 @@
 @import "bootstrap";
 
 // universal 
+html {
+    height: 100%;
+}
 
 body {
   padding-top: 60px;
-  background-color:#8498ba;
+  //background-color:#4b52a3;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  color:white;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 section {
   overflow: auto;
+  color:black;
 }
 
 .container-section {
@@ -18,24 +28,22 @@ section {
   border-style: solid;
   border-color: #2d2d2d;
   padding: 40px;
+  color:black;
+  box-shadow: 10px 10px 5px black;
 }
 
 .section-left {
   float: left;
   width: 50%;
   margin: 0 1.5;
+  color:black;
 }
 
 .section-right {
   width: 50%;
   margin: 0 1.5;
   float: right;
-}
-
-.section-right {
-  width: 50%;
-  margin: 0 1.5;
-  float: right;
+  color:black;
 }
 
 .topcorner{
@@ -85,7 +93,7 @@ textarea {
 
 .footer {
   vertical-align: middle;
-  position: bottom;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -138,6 +146,7 @@ select,
 
 input {
   height: auto !important;
+  width: 20%;
 }
 
 checkbox {
@@ -174,7 +183,8 @@ checkbox {
 .notification-update {
   font-size: 12px;
   padding: 15px;
-  margin: 8px;
+  margin-left: 80px;
+  margin-right: 80px;
   border-style: solid;
   border-width: 1px;
   border-color: #c0c0c0;
@@ -278,32 +288,42 @@ a:hover, a:active {
 
 */
 
-/*Data Table for Availability
+//Data Table for Availability
 
-#customers {
+table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#customers td, #customers th {
+ td, th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+ tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+ tr:hover {background-color: #ddd;}
 
-#customers th {
+ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #35468c;
     color: white;
 }
 
-*/
+.table-scorecard {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    th{
+      width:50%;
+      background-color: #7e4ba3;
+    }
+}
+
+
 
 
 

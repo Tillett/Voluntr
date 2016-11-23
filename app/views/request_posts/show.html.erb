@@ -13,10 +13,10 @@
       <%= form_for @request_post_update  do |f| %>
         <%= f.hidden_field "request_post_id", :value => @request_post.id %>
           <%= f.label :title %>
-            <%= f.text_field :title %>
+            <%= f.text_field :title %><br>
 
               <%= f.label :text %>
-                <%= f.text_field :text %>
+                <%= f.text_field :text %><br>
                   <%= f.submit "Post" %>
                     <% end %>
     </div>

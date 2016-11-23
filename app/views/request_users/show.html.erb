@@ -61,18 +61,32 @@
 
         <section class="section-left">
             <h3>Scorecard</h3>
-            <p>Attitude:
+                        <table class = "table-scorecard">
+                <tr>
+            <th>Leadership</th>
+            <td>
                 <%= @request_user.request_user_scorecard.leadership %>
-            </p>
-            <p>Enthusiasm:
+            </td>
+            </tr>
+            <tr>
+            <th>Treatmeant</th>
+            <td>
                 <%= @request_user.request_user_scorecard.treatment %>
-            </p>
-            <p>Reliability:
-                <%= @request_user.request_user_scorecard.committedness %>
-            </p>
-            <p>Times Reviewed:
+            </td>
+            </tr>
+            <tr>
+            <th>Committedness</th>
+                <td>
+               <%= @request_user.request_user_scorecard.committedness %>
+            </td>
+            </tr>
+            <tr>
+            <th>Times Reviewed</th>
+            <td>
                 <%= @request_user.rev_count %>
-            </p>
+            </td>
+            </tr>
+            </table>
         </section>
 
         <section class="section-right">
