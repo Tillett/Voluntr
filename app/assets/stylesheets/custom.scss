@@ -47,9 +47,11 @@ section {
 }
 
 .topcorner{
-  position: absolute;
-  top:90px;
-  right:285px;
+     position:absolute;
+     top:0;
+     right:0;
+     padding-top: 60px;
+     width: 20%;
 }
 
 textarea {
@@ -250,6 +252,9 @@ checkbox {
   border-color: #4090db;
   color: #4090db;
   margin-left: 20px;
+     position:absolute;
+     top:0;
+     right:0;
   &:visited, &:focus, &:hover {
     border-color: #2D6396;
     color: #2D6396;
