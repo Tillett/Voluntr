@@ -3,6 +3,13 @@
         <%= @request_user.display_name %>
 </h1>
 
+                <% if volunteer_user_logged_in? %>
+                <div class = "topcorner">
+                    <p>
+                        <%= render 'follow_form' %>
+                    </p>
+                <% end %>
+                </div>
 
 <div class="RequestInfo">
 
@@ -31,13 +38,6 @@
 
         <section class="section-right">
 
-                <% if volunteer_user_logged_in? %>
-                <div class = "topcorner">
-                    <p>
-                        <%= render 'follow_form' %>
-                    </p>
-                <% end %>
-                </div>
                     <h3>About Me</h3>
                     <p>
                         <%= @request_user.about_me %>
