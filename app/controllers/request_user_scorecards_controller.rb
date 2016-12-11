@@ -33,6 +33,15 @@ class RequestUserScorecardsController < ApplicationController
         end
     end
     
+    def verify_user
+        #if job.id = the id
+        return true
+    end
+    
+    def verify_reviewable
+        #check that reviewed flag is false
+    end
+    
     def update
         #Find the request user scorecard in the database
         @request_user_scorecard = RequestUserScorecard.find_by(request_user_id: params[:request_user_scorecard][:request_user_id])
@@ -44,8 +53,11 @@ class RequestUserScorecardsController < ApplicationController
         @new_treat = params[:request_user_scorecard][:treatment].to_f
         @new_commit = params[:request_user_scorecard][:committedness].to_f
         
+        #A comment
+        @job = RequestPostJob.find(params[:rpjid])
+        
         #make sure the scores are correct
-        if verify_scores
+        if verify_scores and verify_user
             
             #Average old scored with new scores
             @old_review_count = @req_user.rev_count.to_f
@@ -63,7 +75,6 @@ class RequestUserScorecardsController < ApplicationController
             @req_user.update_attribute(:rev_count, @review_count)
             
             #Set the job volunteer flag as reviewed
-            @job = RequestPostJob.find(params[:rpjid])
             @job.update_attribute(:request_reviewed, true)
             
             #Redirect to user's profile
