@@ -8,6 +8,7 @@ class VolunteerUsersController < ApplicationController
     
     #Search database for volunteer user matching search param
     @volunteer_users = VolunteerUser.search(params[:search])
+    @volunteer_users = @volunteer_users.select{|x| !x.no_search}
   end
   
   def new
