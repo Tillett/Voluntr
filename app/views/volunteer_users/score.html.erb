@@ -1,23 +1,24 @@
-<div class = "ReviewVolunteer">
+
     <h1>Volunteer Review</h1>
+    <section class = "container-section">
     <p>
         <%= form_for UserScorecard.find_by(params[:volunteer_user_id]) do |f| %>
             <%= f.hidden_field :volunteer_user_id %>
             <%= hidden_field_tag(:rpjid, params[:rpjid]) %>
             
             <%= f.label :skill_proficiency, "Skill Proficiency" %>
-            <%= f.text_field :skill_proficiency %>
+            <%= f.text_field :skill_proficiency %><br>
             
             <%= f.label :attitude, "Attitude" %>
-            <%= f.text_field :attitude %>
+            <%= f.text_field :attitude %><br>
             
             <%= f.label :enthusiasm, "Enthusiasm" %>
-            <%= f.text_field :enthusiasm %>
+            <%= f.text_field :enthusiasm %><br>
             
             <%= f.label :reliability, "Reliability" %>
-            <%= f.text_field :reliability %>
+            <%= f.text_field :reliability %><br>
             
             <%= f.submit "Confirm Review" %>
         <% end %>
     </p>
-</div>
+    </section>
