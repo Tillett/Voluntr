@@ -58,8 +58,10 @@ class VolunteerUser < ApplicationRecord
   def self.search(search)
     if search
         search.downcase!
-          #all.select{|x| x.display_name.downcase! == search}
-           where("LOWER(display_name) LIKE ? or LOWER(email) LIKE ?", "%#{search}%", "%#{search}%")
+          
+          joins(:skills).where("LOWER(skills.title) LIKE ?", "%#{search}%").group(:id) #<Search by Skills> comment this code out and normal search works
+          
+          where("LOWER(display_name) LIKE ? or LOWER(email) LIKE ?", "%#{search}%", "%#{search}%") #<Normal Search> comment this code out and search by skills works
     else
       all
     end
