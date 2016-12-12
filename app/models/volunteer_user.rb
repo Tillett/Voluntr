@@ -59,7 +59,7 @@ class VolunteerUser < ApplicationRecord
     if search
         search.downcase!
           
-          joins(:skills).where("LOWER(skills.title) LIKE ?", "%#{search}%").group(:id) #<Search by Skills> comment this code out and normal search works
+          #joins(:skills).where("LOWER(skills.title) LIKE ?", "%#{search}%").group(:id) #<Search by Skills> comment this code out and normal search works
           
           where("LOWER(display_name) LIKE ? or LOWER(email) LIKE ?", "%#{search}%", "%#{search}%") #<Normal Search> comment this code out and search by skills works
     else
