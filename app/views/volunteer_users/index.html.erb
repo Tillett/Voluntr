@@ -35,6 +35,133 @@ input[type=text]:focus {
           <% @volunteer_users.each do |user| %>
             <li>
               <%= link_to user.display_name, user %>
+                            <table>
+            <% if user.availability %>
+                <body>
+                    <table border="1">
+                        <tr>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <% if (!user.availability.mon_st) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.mon_st.strftime("%I:%M %p") %>
+                                <% end %>
+                            
+                             - 
+                            
+                                <% if (!user.availability.mon_en) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.mon_en.strftime("%I:%M %p") %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <% if (!user.availability.tues_st) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.tues_st.strftime("%I:%M %p") %>
+                                <% end %>
+                                
+                                 - 
+                            
+                                <% if (!user.availability.tues_en) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.tues_en.strftime("%I:%M %p") %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <% if (!user.availability.wed_st) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.wed_st.strftime("%I:%M %p") %>
+                                <% end %>
+
+                                   - 
+
+                                <% if (!user.availability.wed_en) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.wed_en.strftime("%I:%M %p") %>
+                                <% end %>
+                            </td>
+                      
+                            <td>
+                                <% if (user.availability.thur_st.nil?) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.thur_st.strftime("%I:%M %p") %>
+                                <% end %>
+                                
+                                 - 
+                                 
+                                <% if (user.availability.thur_en.nil?) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.thur_en.strftime("%I:%M %p") %>
+                                <% end %>
+                     
+                            <td>
+                                <% if (!user.availability.fri_st) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.fri_st.strftime("%I:%M %p") %>
+                                <% end %>
+                       
+                                 - 
+                       
+                                <% if (!user.availability.fri_en) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.fri_en.strftime("%I:%M %p") %>
+                                <% end %>
+                            </td>
+                  
+                            <td>
+                                <% if (!user.availability.sat_st) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.sat_st.strftime("%I:%M %p") %>
+                                <% end %>
+                                
+                                 - 
+                        
+                                <% if (!user.availability.sat_en) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.sat_en.strftime("%I:%M %p") %>
+                                <% end %>
+                            </td>
+                  
+                            <td>
+                                <% if (!user.availability.sun_st) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.sun_st.strftime("%I:%M %p") %>
+                                <% end %>
+                                
+                                 - 
+                       
+                                <% if (!user.availability.sun_en) %>
+                                    <%= "Unavailable" %>
+                                <% else %>
+                                    <%= user.availability.sun_en.strftime("%I:%M %p") %>
+                                <% end %>
+                            </td>
+                      </tr>
+                    </table>
+                </body>
+            <% end %>
+            </table>
             </li>
             <% end %>
         </ul>
